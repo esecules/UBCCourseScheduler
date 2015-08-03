@@ -6,17 +6,18 @@
 
    Edit Dockerfile to copy the root of the website into the image
 
-1) build the image
+1) build the images
 
-   sudo ./build.sh
+   sudo src/build.sh
 
 2) start dependencies
 
+   sudo docker run --name scraper -d course-scheduler/scraper
    sudo docker run --name redis -d redis
 
 3) run the image
 
-   sudo docker run --link redis:db --name course-scheduler-ui -d -p 8080:80 course-scheduler/ui:0.0.1
+   sudo docker run --link scraper:scraper --link redis:db --name course-scheduler-ui -d -p 8080:80 course-scheduler/ui:0.0.1
 
 4) view webpage
 
