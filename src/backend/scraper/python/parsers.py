@@ -11,6 +11,8 @@ class SectionParser(object):
     def get_sections(self):
         soup = bs(self.webpage.text)
         coursetable = soup.find('table', class_="section-summary")
+        if not coursetable:
+            return []
         sections = []
         for row in coursetable.find_all('tr')[1:]:
             cols = row.findAll('td')
