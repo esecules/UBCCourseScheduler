@@ -6,25 +6,50 @@
 
    Edit Dockerfile to copy the root of the website into the image
 
-1) build the image
+1) build the images
 
-   sudo ./build.sh
+   sudo src/build.sh
 
 2) start dependencies
 
+   sudo docker run --name scraper -d course-scheduler/scraper:0.0.1
    sudo docker run --name redis -d redis
 
 3) run the image
 
-   sudo docker run --link redis:db --name course-scheduler-ui -d -p 8080:80 course-scheduler/ui:0.0.1
+   sudo docker run --link scraper --link redis --name ui -d -p 8080:80 course-scheduler/ui:0.0.1
 
 4) view webpage
 
    http://localhost:8080
 
+5) You must kill and remove the images before running freshly built ones
+
+   sudo docker kill redis scraper ui
+   sudo docker rm redis scraper ui
 
 ######################
   Installing Docker
 ######################
 
     https://docs.docker.com/installation/
+
+######################
+Accessing the linked
+resources
+######################
+https://docs.docker.com/userguide/dockerlinks/
+
+TLDR:
+Docker maintains the IP addresses of each of the linked services in /etc/hosts
+This file is used like a DNS is to translate a hostname to an IP adddress.
+To access a linked resource you only need its name and port just like in a browser
+for instance to request the sections for a given course:
+
+    make a GET request to the host scraper at port 80:
+    http://scraper/departments/<department>/courses/<course_number>/sections
+           --> Use javascript AJAX
+
+    Try it: (after step 3)
+    sudo docker exec -it ui bash
+    curl  http://scraper/departments/PSYC/courses/350A/sections
