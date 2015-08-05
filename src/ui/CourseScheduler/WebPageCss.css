@@ -1,0 +1,26 @@
+.jumbotron {
+    border: 5px solid #1bccbd;
+    background-color: #fffff9;
+    margin: 14px;
+}
+
+.jumbotron h1{
+    margin: 14px;
+    font-size: 50px;
+    font-family: 'Tahoma', sans-serif;
+}
+
+.course-input .container{
+    float: left;
+    border-color: #1bccbd;
+ }
+
+.course-input .container input{
+    font-family: 'Verdana', sans-serif;
+}
+
+#draggable {
+    width: 150px;
+    height: 40px;
+    padding: 0.5em;
+}
