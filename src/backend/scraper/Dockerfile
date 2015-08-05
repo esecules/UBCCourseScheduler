@@ -1,4 +1,6 @@
 FROM ubuntu:12.04
+
+# Environment variables
 ENV INSTALL /opt/scraper
 
 # ports
