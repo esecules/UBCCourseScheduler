@@ -15,7 +15,13 @@
 }
 
 .course-input input{
+    font-size: 12px;
     font-family: 'Verdana', sans-serif;
+}
+
+.course-input .btn{
+    background-color: #1bccbd;
+    color: #fffff9;
 }
 
 #draggable {
