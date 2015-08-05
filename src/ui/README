@@ -1,0 +1,30 @@
+######################
+  Getting set up
+######################
+
+0) (Initial step after merge)
+
+   Edit Dockerfile to copy the root of the website into the image
+
+1) build the image
+
+   sudo ./build.sh
+
+2) start dependencies
+
+   sudo docker run --name redis -d redis
+
+3) run the image
+
+   sudo docker run --link redis:db --name course-scheduler-ui -d -p 8080:80 course-scheduler/ui:0.0.1
+
+4) view webpage
+
+   http://localhost:8080
+
+
+######################
+  Installing Docker
+######################
+
+    https://docs.docker.com/installation/
