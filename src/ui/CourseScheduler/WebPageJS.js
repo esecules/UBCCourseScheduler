@@ -1,8 +1,14 @@
 /**
  * Created by Tiffy on 15-08-01.
  */
-$(function (){
-    $( "#draggable" ).draggable();
-});
+var main;
 
-$(document).ready();
+main = function () {
+
+
+    $(function(){
+        $("#draggable").draggable({snap: true});
+    });
+}
+
+$(document).ready(main);

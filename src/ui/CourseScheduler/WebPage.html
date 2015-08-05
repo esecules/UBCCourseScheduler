@@ -16,18 +16,25 @@
         <h1>Welcome to the UBC Course Scheduler!</h1>
     </div>
 
-    <div class="container">
-        <div class="course-input">
-            <from>
-                Course Code: <input type="text" name="coursecode">
-                <input type="submit" name="add" value="add">
-            </from>
+    <div class="course-input">
+        <div class="container">
+            <!--form>
+                Course Code: <input type="text" id="coursecode">
+                <input type="submit" id="add" value="add">
+            </form-->
+            <div class="form-group">
+                <label for="coursecode">Course code:</label>
+                <div class="control-group">
+                    <input type="text" class="form-control" id="coursecode">
+                </div>
+            </div>
         </div>
     </div>
 
     <div class = "course-selection">
         <div id="draggable" class="ui-widget-content">
-            <p>Drag me around</p>
+            <span class="ui-icon ui-icon-close delete-button"></span>
+            <a href="#">Drag me around</a>
         </div>
     </div>
 

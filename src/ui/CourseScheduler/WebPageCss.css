@@ -10,12 +10,11 @@
     font-family: 'Tahoma', sans-serif;
 }
 
-.course-input .container{
-    float: left;
-    border-color: #1bccbd;
- }
+.course-input .control-group{
+    display: inline-block;
+}
 
-.course-input .container input{
+.course-input input{
     font-family: 'Verdana', sans-serif;
 }
 
@@ -23,4 +22,9 @@
     width: 150px;
     height: 40px;
     padding: 0.5em;
+}
+
+.delete-button {
+    display: inline-block;
+    float: right;
 }
