@@ -4,10 +4,10 @@
 var main;
 
 main = function () {
-
-
-    $(function(){
-        $("#draggable").draggable({snap: true});
+    $(".btn").click(function(){
+        var tag = $("#coursecode").val();
+        var deleteButton = $("<button>").button({icons: {primary: "ui-icon-close"}});
+        $("<li>").text(tag).draggable().append(deleteButton).appendTo(".course-tags");
     });
 }
 
