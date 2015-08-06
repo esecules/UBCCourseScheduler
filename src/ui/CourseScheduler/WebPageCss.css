@@ -17,10 +17,11 @@
 #input-label{
     font-size: 14px;
     font-family: 'Verdana', sans-serif;
-    padding-right: 15px;
 }
 
-.course-input input{
+.course-input .input-box{
+    width:100px;
+    height:30px;
     font-size: 12px;
     font-family: 'Verdana', sans-serif;
 }
@@ -28,6 +29,10 @@
 .course-input .btn{
     background-color: #1bccbd;
     color: #fffff9;
+}
+
+.course-tags ul{
+    padding-left:0px;
 }
 
 .course-tags li {

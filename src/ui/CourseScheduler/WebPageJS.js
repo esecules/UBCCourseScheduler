@@ -26,6 +26,10 @@ main = function () {
             $("#coursecode").val("");
         }
     });
+
+    $("#calendar").fullCalendar({
+
+    });
 }
 
 $(document).ready(main);
