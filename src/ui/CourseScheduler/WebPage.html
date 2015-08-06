@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UBC Course Scheduler</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="WebPageCss.css" type="text/css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="WebPageJS.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Welcome to the UBC Course Scheduler!</h1>
+    </div>
+
+    <div class="course-input">
+        <div class="container">
+            <form class="form-group pull-left">
+                <label for="coursecode">Course code:</label>
+                <div class="control-group">
+                    <input type="text" class="form-control input-box" id="coursecode">
+                </div>
+                <a href="#" class="btn btn-default">Add</a>
+        </form>
+        </div>
+    </div>
+
+    <ul class="course-tags"></ul>
+
+    <div class = "course-timetable"></div>
+
+</body>
+</html>

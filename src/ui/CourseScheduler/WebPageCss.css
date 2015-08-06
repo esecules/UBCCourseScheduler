@@ -1,0 +1,57 @@
+.jumbotron {
+    border: 5px solid #1bccbd;
+    background-color: #fffff9;
+    margin: 14px;
+}
+
+.jumbotron h1{
+    margin: 14px;
+    font-size: 50px;
+    font-family: 'Tahoma', sans-serif;
+}
+
+.course-input .control-group{
+    display: inline-block;
+}
+
+.course-input input{
+    font-size: 12px;
+    font-family: 'Verdana', sans-serif;
+}
+
+.course-input .btn{
+    background-color: #1bccbd;
+    color: #fffff9;
+}
+
+.course-tags li {
+    /*background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-128.png");
+    background-repeat: no-repeat;
+    background-size: 15px,15px;
+    background-position: 90% 50%;*/
+    background-color: #fff;
+    width: 150px;
+    height: 20px;
+    border: 1px solid #d8d8d8;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    min-height: 42px;
+    list-style: none;
+}
+
+.course-tags li button{
+    width: 17%;
+    border: solid #ffffff 2px;
+    background: #ffffff;
+    margin-left: 0px;
+    position: absolute;
+    top:30%;
+    left:80%;
+}
+
+/*.course-tags li button:hover{
+    background: darkgray;
+}*/
