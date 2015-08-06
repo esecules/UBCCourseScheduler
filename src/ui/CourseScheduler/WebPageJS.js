@@ -12,26 +12,20 @@ main = function () {
             .click(function(){
                 $(this).parent().remove();
             });
-        $("<li>").text(tag).draggable().append(deleteButton).appendTo(".course-tags");
-        $("#coursecode").val("");
-        $(".btn").addClass("disabled");
-    });
 
-    $(".input-box").keyup(function(){
-        var codeLength = $(this).val().length;
-        var remainChars=12 - codeLength;
-        if(remainChars == 12 || remainChars < 0){
-            $(".course-input .btn").addClass("disabled");
+
+        //TODO: add in functionality to serve backend
+        //TODO: check whther course code is valid
+        //TODO: use sweet alert if not
+        if(tag.length == 0){
+            $("<p>").text("Seems like you haven't entered a course code~").dialog();
+        } else if(tag.length >= 12){
+            $("<p>").text("Seems like the course code you entered was too long!").dialog();
         } else{
-            $(".course-input .btn").removeClass("disabled");
+            $("<li>").text(tag).draggable().append(deleteButton).appendTo(".course-tags");
+            $("#coursecode").val("");
         }
     });
-
-    //TODO: add in functionality to serve backend
-    //TODO: check whther course code is valid
-    //TODO: use sweet alert if not
-
-    $(".btn").addClass("disabled");
 }
 
 $(document).ready(main);
