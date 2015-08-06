@@ -11,8 +11,7 @@ main = function () {
             text:false})
             .click(function(){
                 $(this).parent().remove();
-            })
-            .addClass("to-remove");
+            });
         $("<li>").text(tag).draggable().append(deleteButton).appendTo(".course-tags");
     });
 
