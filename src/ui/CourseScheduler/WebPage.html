@@ -16,19 +16,24 @@
         <h1>Welcome to the UBC Course Scheduler!</h1>
     </div>
 
-    <div class="course-input">
-        <div class="container">
-            <form class="form-group pull-left">
-                <label for="coursecode">Course code:</label>
-                <div class="control-group">
-                    <input type="text" class="form-control input-box" id="coursecode">
-                </div>
-                <a href="#" class="btn btn-default">Add</a>
-        </form>
+    <div class="col-md-6">
+        <div class="course-input">
+            <div class="container">
+                <form class="form-group pull-left">
+                    <label for="coursecode" id="input-label">Course code:</label>
+                    <div class="control-group">
+                        <input type="text" class="form-control input-box" id="coursecode">
+                    </div>
+                    <a href="#" class="btn btn-default">Add</a>
+                </form>
+            </div>
         </div>
+        <!--div class ="row"-->
+            <div class = container>
+                <ul class="course-tags"></ul>
+            </div>
+        <!--/div-->
     </div>
-
-    <ul class="course-tags"></ul>
 
     <div class = "course-timetable"></div>
 

@@ -1,6 +1,6 @@
 .jumbotron {
     border: 5px solid #1bccbd;
-    background-color: #fffff9;
+    background-color: #fffffb;
     margin: 14px;
 }
 
@@ -12,6 +12,12 @@
 
 .course-input .control-group{
     display: inline-block;
+}
+
+#input-label{
+    font-size: 14px;
+    font-family: 'Verdana', sans-serif;
+    padding-right: 15px;
 }
 
 .course-input input{
