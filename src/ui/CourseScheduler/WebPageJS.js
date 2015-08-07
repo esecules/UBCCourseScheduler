@@ -28,7 +28,8 @@ main = function () {
     });
 
     $("#calendar").fullCalendar({
-
+        aspectRatio:1,
+        contentHeight:500
     });
 }
 
