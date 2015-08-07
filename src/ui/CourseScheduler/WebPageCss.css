@@ -43,6 +43,19 @@
     color: #fffff9;
 }
 
+#lecture-sections{
+    background-color: #f8c127;
+    margin-left: 30px;
+}
+
+#tutorial-sections{
+    background-color: #ff4ef8;
+}
+
+#lab-sections{
+    background-color: #ff4a7f;
+}
+
 .course-tags li {
     -moz-border-radius: 5px;
     border-radius: 5px;
