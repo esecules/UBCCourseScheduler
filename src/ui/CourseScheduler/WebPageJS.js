@@ -4,7 +4,7 @@
 var main;
 
 main = function () {
-    $(".course-input .btn").click(function(){
+    $("#add-button").click(function(){
         var tag = $("#coursecode").val();
         var deleteButton = $("<button>").button({
             icons: {primary: "ui-icon-close"},
@@ -12,7 +12,6 @@ main = function () {
             .click(function(){
                 $(this).parent().remove();
             });
-
 
         //TODO: add in functionality to serve backend
         //TODO: check whther course code is valid
@@ -27,9 +26,11 @@ main = function () {
         }
     });
 
-    $("#calendar").fullCalendar({
-        aspectRatio:1,
-        contentHeight:500
+    var calendar = $("#calendar").fullCalendar({
+        googleCalendarApiKey: 'AIzaSyDwfIYK0yFpamboP365yLvc1E4sT18HL7I',
+        events:{
+            googleCalendarId:'umhhqhqcoctmrlqlll8hgtktmk@group.calendar.google.com'
+        },
     });
 }
 
