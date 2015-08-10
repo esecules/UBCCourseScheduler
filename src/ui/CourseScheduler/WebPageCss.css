@@ -5,21 +5,35 @@
     font-family: 'Tahoma', sans-serif;
 }
 
-.course-timetable .container-fluid{
+.body .container{
+    height: 500px;
     margin-left:20px;
     margin-right:20px;
-    margin-bottom:20px;
+    margin-bottom:30px;
+}
+
+.course-timetable .container-fluid{
+    margin-bottom:10px;
+    padding:0px;
+}
+
+.col-md-9{
+    padding-left:5px;
+    padding-right:5px;
 }
 
 #calendar{
-    margin-right:0px;
-    display:inline-block;
+
 }
 
 .course-input .container-fluid{
-    margin:0px;
-    padding-left: 35px;
-    border-color: #1bccbd;
+    margin-top:50px;
+    padding:0px;
+}
+
+.col-md-3{
+    padding-left:5px;
+    padding-right:5px;
 }
 
 .course-input .control-group{
@@ -27,6 +41,7 @@
 }
 
 #input-label{
+    display: block;
     font-size: 14px;
     font-family: 'Verdana', sans-serif;
 }
@@ -36,6 +51,7 @@
     height:30px;
     font-size: 12px;
     font-family: 'Verdana', sans-serif;
+    margin-bottom: 10px;
 }
 
 .course-input .btn{
@@ -45,21 +61,30 @@
 
 #lecture-sections{
     background-color: #f8c127;
-    margin-left: 30px;
+    margin-left: 5px;
+    margin-bottom: 30px;
 }
 
 #tutorial-sections{
     background-color: #ff4ef8;
+    margin-left:5px;
+    margin-bottom: 30px;
 }
 
 #lab-sections{
     background-color: #ff4a7f;
+    margin-left:5px;
+    margin-bottom: 30px;
+}
+
+.course-tags{
+    padding-left:0px;
 }
 
 .course-tags li {
     -moz-border-radius: 5px;
     border-radius: 5px;
-    display:inline-block;
+
     background-color: #fff;
     font-size: 13px;
     width: 120px;
@@ -70,6 +95,7 @@
     padding-right: 20px;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    margin-right:10px;
     min-height: 42px;
     list-style: none;
 }

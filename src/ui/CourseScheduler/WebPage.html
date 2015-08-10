@@ -6,7 +6,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.css" rel="stylesheet">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.print.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.print.css" rel="stylesheet"
+          media="print">
     <link href="WebPageCss.css" type="text/css" rel="stylesheet">
 
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -18,37 +19,71 @@
     <script src="WebPageJS.js" type="text/javascript"></script>
 </head>
 <body>
-    <div class="page-header">
-        <h1>Welcome to the UBC Course Scheduler!</h1>
-    </div>
+<div class="page-header">
+    <h1>Welcome to the UBC Course Scheduler!</h1>
+</div>
 
 
-    <div class="course-timetable">
-        <div class="container-fluid">
-            <div class="row">
-                <div id='calendar'></div>
+<!--div class="course-timetable">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="container-fluid">
+                    <div id='calendar'></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course-input">
+                    <div class="container-fluid">
+                        <a href="#" id="lecture-sections" class="btn btn-default">Lecture</a>
+                        <a href="#" id="tutorial-sections" class="btn btn-default">Tutorial</a>
+                        <a href="#" id="lab-sections" class="btn btn-default">Lab</a>
+                        <label for="coursecode" id="input-label">Course Code:</label>
+                        <form class="form-group pull-left">
+                            <div class="control-group">
+                                <input type="text" class="form-control input-box" id="coursecode">
+                            </div>
+                            <a href="#" id="add-button" class="btn btn-default">Add</a>
+                            <ul class="course-tags"></ul>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div-->
+<div class="container">
+    <div class="row">
+        <div class="course-timetable">
+            <div class="col-md-9">
+                <div class="container-fluid">
+                    <div id='calendar'></div>
+                </div>
+            </div>
+        </div>
 
-
-    <div class="course-input">
-        <div class="container-fluid">
-            <div class="row">
-                <form class="form-group pull-left">
-                    <label for="coursecode" id="input-label">Course Code:</label>
-                    <div class="control-group">
-                        <input type="text" class="form-control input-box" id="coursecode">
-                    </div>
-                    <a href="#" id="add-button" class="btn btn-default">Add</a>
+        <div class="course-input">
+            <div class="col-md-3">
+                <div class="container-fluid">
                     <a href="#" id="lecture-sections" class="btn btn-default">Lecture</a>
                     <a href="#" id="tutorial-sections" class="btn btn-default">Tutorial</a>
                     <a href="#" id="lab-sections" class="btn btn-default">Lab</a>
-                </form>
+                    <label for="coursecode" id="input-label">Course Code:</label>
+
+                    <form class="form-group pull-left">
+                        <div class="control-group">
+                            <input type="text" class="form-control input-box" id="coursecode">
+                        </div>
+                        <a href="#" id="add-button" class="btn btn-default">Add</a>
+                        <ul class="course-tags"></ul>
+                    </form>
+                </div>
             </div>
         </div>
-        <ul class="course-tags"></ul>
     </div>
+
+
+</div>
 
 </body>
 </html>

@@ -27,10 +27,17 @@ main = function () {
     });
 
     var calendar = $("#calendar").fullCalendar({
+        defaultView:'agendaWeek',
+        theme:true,
+        header:{
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
         googleCalendarApiKey: 'AIzaSyDwfIYK0yFpamboP365yLvc1E4sT18HL7I',
         events:{
             googleCalendarId:'umhhqhqcoctmrlqlll8hgtktmk@group.calendar.google.com'
-        },
+        }
     });
 }
 
