@@ -1,22 +1,57 @@
-.jumbotron {
-    border: 5px solid #1bccbd;
-    background-color: #fffff9;
-    margin: 14px;
-}
-
-.jumbotron h1{
-    margin: 14px;
+.page-header h1{
+    padding-left:20px;
+    vertical-align: middle;
     font-size: 50px;
     font-family: 'Tahoma', sans-serif;
+}
+
+.body .container{
+    height: 500px;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:30px;
+}
+
+.course-timetable .container-fluid{
+    margin-bottom:10px;
+    padding:0px;
+}
+
+.col-md-9{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#calendar{
+
+}
+
+.course-input .container-fluid{
+    margin-top:50px;
+    padding:0px;
+}
+
+.col-md-3{
+    padding-left:5px;
+    padding-right:5px;
 }
 
 .course-input .control-group{
     display: inline-block;
 }
 
-.course-input input{
+#input-label{
+    display: block;
+    font-size: 14px;
+    font-family: 'Verdana', sans-serif;
+}
+
+.course-input .input-box{
+    width:100px;
+    height:30px;
     font-size: 12px;
     font-family: 'Verdana', sans-serif;
+    margin-bottom: 10px;
 }
 
 .course-input .btn{
@@ -24,20 +59,43 @@
     color: #fffff9;
 }
 
+#lecture-sections{
+    background-color: #f8c127;
+    margin-left: 5px;
+    margin-bottom: 30px;
+}
+
+#tutorial-sections{
+    background-color: #ff4ef8;
+    margin-left:5px;
+    margin-bottom: 30px;
+}
+
+#lab-sections{
+    background-color: #ff4a7f;
+    margin-left:5px;
+    margin-bottom: 30px;
+}
+
+.course-tags{
+    padding-left:0px;
+}
+
 .course-tags li {
-    /*background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-128.png");
-    background-repeat: no-repeat;
-    background-size: 15px,15px;
-    background-position: 90% 50%;*/
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
     background-color: #fff;
-    width: 150px;
-    height: 20px;
+    font-size: 13px;
+    width: 120px;
+    height: 8px;
     border: 1px solid #d8d8d8;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    margin-right:10px;
     min-height: 42px;
     list-style: none;
 }
@@ -51,6 +109,8 @@
     top:30%;
     left:80%;
 }
+
+
 
 /*.course-tags li button:hover{
     background: darkgray;
