@@ -4,11 +4,9 @@ import traceback
 import json
 import logging
 app = Flask(__name__)
+logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s')
 logger = logging.getLogger(__name__)
-hdlr = logging.FileHandler('/var/tmp/{0}.log'.format(__name__))
-formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-hdlr.setFormatter(formatter)
-logger.addHandler(hdlr)
+
 
 @app.route('/ping')
 def ping():
@@ -16,11 +14,14 @@ def ping():
 
 @app.route('/departments/<dept>/courses/<course>/sections', methods=['GET'])
 def get_sections(dept, course):
-    sp = SectionParser(dept, course)
-    sections = sp.get_sections()
-    if not sections:
-        abort(404)
-    sections_json = json.dumps(sections)
+    try:
+        sp = SectionParser(dept, course)
+        sections = sp.get_sections()
+        if not sections:
+            abort(404)
+        sections_json = json.dumps(sections)
+    except Exception as e:
+        logger.error(traceback.format_exc())
     return sections_json
 
 if __name__ == '__main__':
