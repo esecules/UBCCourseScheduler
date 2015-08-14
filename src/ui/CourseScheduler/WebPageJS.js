@@ -39,7 +39,7 @@ main = function () {
         droppable: true,
         minTime:"08:00:00",
         defaultView:'month',
-        theme:true,
+        theme:false,
         header:{
             left: 'prev,next today',
             center: 'title',

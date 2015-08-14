@@ -20,7 +20,16 @@
 </head>
 <body>
 <div class="page-header">
-    <h1>Welcome to the UBC Course Scheduler!</h1>
+    <div class="container">
+        <ul class="pull-left">
+            <li id="page-name">UBC Course Scheduler</li>
+        </ul>
+        <ul class="pull-right">
+            <li><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Auto-Scheduler</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Tutorials</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></li>
+        </ul>
+    </div>
 </div>
 
 <div class="container">
@@ -39,13 +48,15 @@
                     <a href="#" id="lecture-sections" class="btn btn-default">Lecture</a>
                     <a href="#" id="tutorial-sections" class="btn btn-default">Tutorial</a>
                     <a href="#" id="lab-sections" class="btn btn-default">Lab</a>
-                    <label for="coursecode" id="input-label">Course Code:</label>
 
+                    <label for="coursecode" id="input-label">Course Code:</label>
                     <form class="form-group pull-left">
                         <div class="control-group">
                             <input type="text" class="form-control input-box" id="coursecode">
                         </div>
-                        <a href="#" id="add-button" class="btn btn-default">Add</a>
+                        <a href="#" id="add-button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </a>
                         <ul class="course-tags"></ul>
                     </form>
                 </div>
