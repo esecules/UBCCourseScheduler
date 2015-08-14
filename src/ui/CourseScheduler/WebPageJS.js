@@ -31,20 +31,8 @@ main = function () {
                 editable: true
             });
             $("#coursecode").val("");
-            /*if(tag == "CPSC 304"){
-                var lecture = {
-                    id     :'304',
-                    title  :'CPSC 304 Lecture',
-                    start  :'2015-08-26 09:00:00',
-                    end    :'2015-08-26 11:00:00',
-                    allDay : false,
-
-                    location: 'DMP 310',
-                    editable: true
-                }
-                calendar.fullCalendar('renderEvent', lecture, true)
-            }*/
         }
+        return false;
     });
 
     var calendar = $("#calendar").fullCalendar({
