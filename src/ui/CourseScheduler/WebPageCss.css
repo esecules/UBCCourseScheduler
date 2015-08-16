@@ -30,6 +30,7 @@
 }
 
 
+
 .page-header .pull-left{
     padding-left:0px;
     margin-left:0px;
@@ -65,6 +66,19 @@
 
 }
 
+.fc-toolbar .fc-center h2{
+    font-size:20px !important;
+    font-weight: normal;
+}
+
+.fc-prev-button{
+    background-image: none;
+}
+
+.fc-next-button{
+    background-image: none;
+}
+
 .course-input .container-fluid{
     margin-top:50px;
     padding:0px;
@@ -95,25 +109,29 @@
 
 .course-input .btn{
     background-color: #1bccbd;
+    border: none;
     color: #fffff9;
 }
 
 #lecture-sections{
     background-color: #f8c127;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 30px;
+    border: none;
 }
 
 #tutorial-sections{
     background-color: #ff4ef8;
-    margin-left:5px;
+    margin-left:0px;
     margin-bottom: 30px;
+    border: none;
 }
 
 #lab-sections{
     background-color: #ff4a7f;
-    margin-left:5px;
+    margin-left:0px;
     margin-bottom: 30px;
+    border: none;
 }
 
 .course-tags{
@@ -129,23 +147,26 @@
     width: 120px;
     height: 8px;
     border: 1px solid #d8d8d8;
-    padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
     margin-bottom: 10px;
     margin-right:10px;
-    min-height: 42px;
+    min-height: 20px;
     list-style: none;
+    vert-align: middle;
 }
 
 .course-tags li button{
     width: 17%;
+    height: 17%;
     border: solid #ffffff 2px;
     background: #ffffff;
     margin-left: 0px;
     position: absolute;
-    top:30%;
+    vertical-align: middle;
+    top:40%;
     left:80%;
 }
 

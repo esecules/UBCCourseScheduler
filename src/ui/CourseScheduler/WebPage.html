@@ -26,7 +26,7 @@
         </ul>
         <ul class="pull-right">
             <li><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Auto-Scheduler</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Tutorials</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Guides</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></li>
         </ul>
     </div>
@@ -45,9 +45,11 @@
         <div class="course-input">
             <div class="col-md-3">
                 <div class="container-fluid">
-                    <a href="#" id="lecture-sections" class="btn btn-default">Lecture</a>
-                    <a href="#" id="tutorial-sections" class="btn btn-default">Tutorial</a>
-                    <a href="#" id="lab-sections" class="btn btn-default">Lab</a>
+                    <div class="btn-group" role="group">
+                        <button id="lecture-sections" class="btn btn-default">Lecture</button>
+                        <button href="#" id="tutorial-sections" class="btn btn-default">Tutorial</button>
+                        <button href="#" id="lab-sections" class="btn btn-default">Lab</button>
+                    </div>
 
                     <label for="coursecode" id="input-label">Course Code:</label>
                     <form class="form-group pull-left">

@@ -35,6 +35,8 @@ main = function () {
         return false;
     });
 
+
+
     var calendar = $("#calendar").fullCalendar({
         droppable: true,
         minTime:"08:00:00",
