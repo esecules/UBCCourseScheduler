@@ -6,15 +6,19 @@ body{
     padding-top:50px;
 }
 
-#diyScheduler{
-    padding-top:90px;
-    margin-left:20px;
-}
+/*#mainPage{
+    background-image:url(/img/linedpaper_@2x.png);
+}*/
 
 #mainPage h1,p{
     text-align: center;
     vertical-align: middle;
     margin: 40px auto;
+}
+
+#diyScheduler{
+    padding-top:90px;
+    margin-left:20px;
 }
 
 

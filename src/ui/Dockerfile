@@ -19,14 +19,15 @@ ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock
+ENV APACHIE_PID_FILE /var/run/apache2
 
-COPY cfg/course-scheduler $CFG/sites-available/
+COPY cfg/course-scheduler.conf $CFG/sites-available/
 COPY scripts/ $INSTALL/scripts/
 RUN rm -f /etc/apache2/sites-enabled/000-default.conf
 RUN rm -f /etc/apache2/sites-available/000-default.conf
-COPY CourseScheduler $WEB_ROOT
+COPY CourseScheduler $WEB_ROOT/CourseScheduler
 
-RUN chown www-data:www-data -R $WEB_ROOT $INSTALL $CFG/sites-available
+RUN chown www-data:www-data -R $WEB_ROOT $INSTALL $CFG/sites-available $APACHE_LOG_DIR $APACHE_LOCK_DIR
 
 EXPOSE 80
 

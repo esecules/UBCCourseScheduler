@@ -7,7 +7,10 @@ main = function () {
 
     //Add button click event handler
     $("#add-button").popover().click(function(){
+
         var tag = $("#coursecode").val();
+        tag = tag.trim().replace(/\s+/g,"");
+
         var deleteButton = $("<button>").button({
             icons: {primary: "ui-icon-close"},
             text:false})
@@ -24,20 +27,48 @@ main = function () {
             });
         }
 
-        //Course code entered is too long
-        else if(tag.length >= 12){
-            $(this).data('bs.popover').options.content = 'Course code entered is too long!';
+        //Course code entered has special characters
+        else if(/^[a-zA-Z0-9- ]*$/.test(tag) == false){
+            $(this).data('bs.popover').options.content = 'Course code entered contains special characters!';
             $(this).popover("show");
             $('body').click(function() {
                 $("#add-button").popover('hide');
             });
         }
 
-        //0 < CourseCode.length <= 12
+        //Course code entered does not have a course number
+        else if(/\d{3,}/.test(tag) == false){
+            $(this).data('bs.popover').options.content = 'Course code entered does not have a course number!';
+            $(this).popover("show");
+            $('body').click(function() {
+                $("#add-button").popover('hide');
+            });
+        }
+
+        //Course code entered does not have a vald department code
+        else if(/^[a-zA-Z]{4}/.test(tag) == false){
+            $(this).data('bs.popover').options.content = 'Course code entered does not have a valid department code!';
+            $(this).popover("show");
+            $('body').click(function() {
+                $("#add-button").popover('hide');
+            });
+        }
+
+        //valid coursecode  format
         else{
             //Invalid Course Code
             //TODO: if/else statement needed
             //TODO: make ajax call
+
+            var department = tag.substr(0,4).toUpperCase();
+            var code = tag.substr(4).trim().toUpperCase();
+
+            $.ajax({
+                url: "http://192.168.99.100:8083/departments/"+department+"/courses/"+code+"/sections"
+            }).then(function(data){
+                obj = JSON.parse(data);
+                //alert(obj.count);
+            });
 
             //Valid Course Code
             $("<li>").text(tag).draggable({
@@ -45,7 +76,7 @@ main = function () {
                 revert: true,
                 revertDuration: 0
             }).append(deleteButton).appendTo(".course-tags").data("event", {
-                title: $.trim(tag),
+                title: $.trim(department+" "+code),
                 stick: true,
                 editable: true
             });
@@ -75,6 +106,7 @@ main = function () {
         }
     });
 
+    //TEST: manually added event object
     var cpsc310 = {
         id     :'310',
         title  :'CPSC 310 Lecture',
