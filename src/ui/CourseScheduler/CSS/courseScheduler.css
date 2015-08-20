@@ -1,105 +1,71 @@
-.body .container{
-    height: 500px;
+body{
+    position:relative;
+}
+
+#mainPage, #autoCalendar, #contact{
+    padding-top:50px;
+}
+
+#diyScheduler{
+    padding-top:90px;
     margin-left:20px;
-    margin-right:20px;
-    margin-bottom:30px;
-    margin-top:40px;
-    padding-top:40px;
 }
 
-.page-header{
-    margin-bottom: 20px;
-    background-color: #eaeaea;
-    margin-top: 0px;
-    padding-top: 20px;
-}
-
-.page-header li{
-    display: inline-block;
-    list-style-type: none;
-    color: #4a4a4a;
-}
-
-.page-header a{
-    color: #4a4a4a;
-    text-decoration: none;
-}
-
-.page-header a:hover{
-    color:#1de7d8;
-}
-
-
-
-.page-header .pull-left{
-    padding-left:0px;
-    margin-left:0px;
-    font-size: 20px;
+#mainPage h1,p{
+    text-align: center;
     vertical-align: middle;
-    font-weight: bold;
+    margin: 40px auto;
 }
 
-.page-header .pull-right{
-    padding-left:20px;
-    margin-right:45px;
-    font-size: 15px;font-weight: bold;
-    vertical-align: middle
-}
 
-.page-header .pull-right li{
-    padding-left:20px;
-    margin-left:20px;
-
-}
-
-.course-timetable .container-fluid{
+#diyScheduler .course-timetable .container-fluid{
     margin-bottom:10px;
     padding:0px;
 }
 
-.col-md-9{
+#diyScheduler .col-md-9{
     padding-left:5px;
     padding-right:5px;
 }
 
-#calendar{
+#diyScheduler #calendar{
 
 }
 
-.fc-toolbar .fc-center h2{
+#diyScheduler .fc-toolbar .fc-center h2{
     font-size:20px !important;
     font-weight: normal;
 }
 
-.fc-prev-button{
+#diyScheduler .fc-prev-button{
     background-image: none;
 }
 
-.fc-next-button{
+#diyScheduler .fc-next-button{
     background-image: none;
 }
 
-.course-input .container-fluid{
+#diyScheduler .course-input .container-fluid{
     margin-top:50px;
     padding:0px;
 }
 
-.col-md-3{
+#diyScheduler .col-md-3{
     padding-left:5px;
     padding-right:5px;
 }
 
-.course-input .control-group{
+#diyScheduler .course-input .control-group{
     display: inline-block;
 }
 
-#input-label{
+#diyScheduler #input-label{
     display: block;
     font-size: 14px;
     font-family: 'Shift', sans-serif;
 }
 
-.course-input .input-box{
+#diyScheduler .course-input .input-box{
     width:100px;
     height:30px;
     font-size: 12px;
@@ -107,38 +73,38 @@
     margin-bottom: 10px;
 }
 
-.course-input .btn{
+#diyScheduler .course-input .btn{
     background-color: #1bccbd;
     border: none;
     color: #fffff9;
 }
 
-#lecture-sections{
+#diyScheduler #lecture-sections{
     background-color: #f8c127;
     margin-left: 0px;
     margin-bottom: 30px;
     border: none;
 }
 
-#tutorial-sections{
+#diyScheduler #tutorial-sections{
     background-color: #ff4ef8;
     margin-left:0px;
     margin-bottom: 30px;
     border: none;
 }
 
-#lab-sections{
+#diyScheduler #lab-sections{
     background-color: #ff4a7f;
     margin-left:0px;
     margin-bottom: 30px;
     border: none;
 }
 
-.course-tags{
+#diyScheduler .course-tags{
     padding-left:0px;
 }
 
-.course-tags li {
+#diyScheduler .course-tags li {
     -moz-border-radius: 5px;
     border-radius: 5px;
 
@@ -158,7 +124,7 @@
     vert-align: middle;
 }
 
-.course-tags li button{
+#diyScheduler .course-tags li button{
     width: 17%;
     height: 17%;
     border: solid #ffffff 2px;

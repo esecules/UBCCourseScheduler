@@ -4,6 +4,12 @@
 var main;
 
 main = function () {
+    $("#diyCalendar").click(function(){
+        $("#diyCalendar").removeClass("hidden");
+        $(this).addClass("hidden");
+    });
+
+
     $("#add-button").click(function(){
         var tag = $("#coursecode").val();
         var deleteButton = $("<button>").button({
