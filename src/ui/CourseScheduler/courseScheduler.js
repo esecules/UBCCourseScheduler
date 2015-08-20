@@ -4,13 +4,9 @@
 var main;
 
 main = function () {
-    $("#diyCalendar").click(function(){
-        $("#diyCalendar").removeClass("hidden");
-        $(this).addClass("hidden");
-    });
 
-
-    $("#add-button").click(function(){
+    //Add button click event handler
+    $("#add-button").popover().click(function(){
         var tag = $("#coursecode").val();
         var deleteButton = $("<button>").button({
             icons: {primary: "ui-icon-close"},
@@ -19,14 +15,31 @@ main = function () {
                 $(this).parent().remove();
             });
 
-        //TODO: add in functionality to serve backend
-        //TODO: check whther course code is valid
-        //TODO: use sweet alert if not
+        //No course code entered
         if(tag.length == 0){
-            $("<p>").text("Seems like you haven't entered a course code~").dialog();
-        } else if(tag.length >= 12){
-            $("<p>").text("Seems like the course code you entered was too long!").dialog();
-        } else{
+            $(this).data('bs.popover').options.content = 'You have to enter a course code!';
+            $(this).popover("show");
+            $('body').click(function() {
+                $("#add-button").popover('hide');
+            });
+        }
+
+        //Course code entered is too long
+        else if(tag.length >= 12){
+            $(this).data('bs.popover').options.content = 'Course code entered is too long!';
+            $(this).popover("show");
+            $('body').click(function() {
+                $("#add-button").popover('hide');
+            });
+        }
+
+        //0 < CourseCode.length <= 12
+        else{
+            //Invalid Course Code
+            //TODO: if/else statement needed
+            //TODO: make ajax call
+
+            //Valid Course Code
             $("<li>").text(tag).draggable({
                 zIndex: 999,
                 revert: true,
@@ -38,11 +51,13 @@ main = function () {
             });
             $("#coursecode").val("");
         }
+
+        //Page doesn't go to top every time an element is added
         return false;
     });
 
 
-
+    //Fullcalendar Initialisation
     var calendar = $("#calendar").fullCalendar({
         droppable: true,
         minTime:"08:00:00",
@@ -74,4 +89,5 @@ main = function () {
     calendar.fullCalendar('renderEvent', cpsc310, true)
 }
 
+//Function execute when HTML doc is loaded
 $(document).ready(main);

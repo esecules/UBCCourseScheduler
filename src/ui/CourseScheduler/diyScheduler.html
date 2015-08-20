@@ -35,9 +35,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <!-- Website name & Logo -->
             <a class="navbar-brand" href="index.html">UBC Course Scheduler</a>
         </div>
         <div>
+            <!-- Navigation Bar right panel -->
             <div class="collapse navbar-collapse pull-right" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="index.html" class="hidden"></a></li>
@@ -52,6 +54,7 @@
 
 <div class="container-fluid" id="diyScheduler">
     <div class="row">
+        <!-- Fullcalendar placement -->
         <div class="course-timetable">
             <div class="col-md-9">
                 <div class="container-fluid">
@@ -59,24 +62,27 @@
                 </div>
             </div>
         </div>
-
+        <!-- Course Input and Selection toggle panel -->
         <div class="course-input">
             <div class="col-md-3">
                 <div class="container-fluid">
+                    <!-- Selection Toggle button group -->
                     <div class="btn-group" role="group">
                         <button id="lecture-sections" class="btn btn-default">Lecture</button>
                         <button href="#" id="tutorial-sections" class="btn btn-default">Tutorial</button>
                         <button href="#" id="lab-sections" class="btn btn-default">Lab</button>
                     </div>
-
+                    <!-- Course Code enter form -->
                     <label for="coursecode" id="input-label">Course Code:</label>
                     <form class="form-group pull-left">
                         <div class="control-group">
                             <input type="text" class="form-control input-box" id="coursecode">
                         </div>
-                        <a href="#" id="add-button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <a href="#" id="add-button" class="btn btn-default" role="button"
+                                data-trigger="manual" data-title="" data-placement="bottom">
+                            <i class="fa fa-plus"></i>
                         </a>
+                        <!-- Course Tags append DOM -->
                         <ul class="course-tags"></ul>
                     </form>
                 </div>
