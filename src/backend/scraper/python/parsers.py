@@ -17,6 +17,8 @@ class SectionParser(object):
         for row in coursetable.find_all('tr')[1:]:
             cols = row.findAll('td')
             try:
+                if  cols[2].string == "Distance Education":
+                    continue
                 # We dont care if these are blank so provide sane defaults
                 status = cols[0].string.strip() if isinstance(cols[0].string, basestring) else ''
                 interval = cols[4].string.strip() if isinstance(cols[4].string, basestring) else ''
@@ -24,7 +26,7 @@ class SectionParser(object):
                 sections.append({'status': status,
                                  'section': cols[1].a.string.replace('\n','').replace('  ',''),
                                  'activity': cols[2].string,
-                                 'term': int(cols[3].string),
+                                 'term': cols[3].string.split('-'),
                                  'interval': interval,
                                  'days': cols[5].string.strip().split(' '),
                                  'start': cols[6].string,
