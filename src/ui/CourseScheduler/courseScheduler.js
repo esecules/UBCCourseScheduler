@@ -4,8 +4,394 @@
 var main;
 
 main = function () {
-
     var course = [
+        {
+            "hasSection": true,
+            "hasTutorial":false,
+            "hasLaboratory": true,
+
+            "sections1":["CPSC 213 101"],
+            "sections2":["CPSC 213 203","CPSC 213 204"],
+            "tutorials1":[],
+            "tutorials2":[],
+            "labs1":["CPSC 213 L1A","CPSC 213 L1B","CPSC 213 L1C","CPSC 213 L1D","CPSC 213 L1E","CPSC 213 L1F"],
+            "labs2":["CPSC 213 L2A","CPSC 213 L2B","CPSC 213 L2C","CPSC 213 L2H","CPSC 213 L2J","CPSC 213 L2K","CPSC 213 L2M","CPSC 213 L2N","CPSC 213 L2P"]
+
+        },
+        {
+            "status":"Full",
+            "start":"15:00",
+            "term":1,
+            "end":"16:00",
+            "activity":"Lecture",
+            "section":"CPSC 213 101",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"16:00",
+            "term":1,
+            "end":"17:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L1A",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"",
+            "start":"11:00",
+            "term":1,
+            "end":"12:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L1B",
+            "interval":"",
+            "days":[
+                "Wed"
+            ]
+        },
+        {
+            "status":"",
+            "start":"10:00",
+            "term":1,
+            "end":"11:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L1C",
+            "interval":"",
+            "days":[
+                "Wed"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"15:00",
+            "term":1,
+            "end":"16:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L1D",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"11:30",
+            "term":1,
+            "end":"12:30",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L1E",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"14:00",
+            "term":1,
+            "end":"15:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L1F",
+            "interval":"",
+            "days":[
+                "Wed"
+            ]
+        },
+        {
+            "status":"",
+            "start":"15:00",
+            "term":1,
+            "end":"16:00",
+            "activity":"Waiting List",
+            "section":"CPSC 213 1W1",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"15:00",
+            "term":2,
+            "end":"16:00",
+            "activity":"Lecture",
+            "section":"CPSC 213 203",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"12:00",
+            "term":2,
+            "end":"13:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2A",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"11:00",
+            "term":2,
+            "end":"12:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2B",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"11:00",
+            "term":2,
+            "end":"12:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2C",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"14:00",
+            "term":2,
+            "end":"15:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2H",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"10:00",
+            "term":2,
+            "end":"11:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2J",
+            "interval":"",
+            "days":[
+                "Wed"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"10:00",
+            "term":2,
+            "end":"11:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2K",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"13:00",
+            "term":2,
+            "end":"14:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2M",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"15:00",
+            "term":2,
+            "end":"16:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2N",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"16:00",
+            "term":2,
+            "end":"17:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2P",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"9:00",
+            "term":2,
+            "end":"10:00",
+            "activity":"Lecture",
+            "section":"CPSC 213 204",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"12:00",
+            "term":2,
+            "end":"13:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2A",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"11:00",
+            "term":2,
+            "end":"12:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2B",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"11:00",
+            "term":2,
+            "end":"12:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2C",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"14:00",
+            "term":2,
+            "end":"15:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2H",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"10:00",
+            "term":2,
+            "end":"11:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2J",
+            "interval":"",
+            "days":[
+                "Wed"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"10:00",
+            "term":2,
+            "end":"11:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2K",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"13:00",
+            "term":2,
+            "end":"14:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2M",
+            "interval":"",
+            "days":[
+                "Mon"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"15:00",
+            "term":2,
+            "end":"16:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2N",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"16:00",
+            "term":2,
+            "end":"17:00",
+            "activity":"Laboratory",
+            "section":"CPSC 213 L2P",
+            "interval":"",
+            "days":[
+                "Tue"
+            ]
+        },
+        {
+            "status":"",
+            "start":"15:00",
+            "term":2,
+            "end":"16:00",
+            "activity":"Waiting List",
+            "section":"CPSC 213 2W3",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"9:00",
+            "term":2,
+            "end":"10:00",
+            "activity":"Waiting List",
+            "section":"CPSC 213 2W4",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        }
+    ];
+    /*var course = [
         {
             "status": "Full",
             "start": "16:00",
@@ -42,82 +428,197 @@ main = function () {
                 "Mon"
             ]
         }
-    ];
+    ];*/
 
-    var lecture_events = new Array();
-    var tutorial_events = new Array();
-    var lab_events = new Array();
+    /*var course = [
+        {
+            "hasSection": true,
+            "hasTutorial":true,
+            "hasLaboratory": false,
+
+            "sections1":["CPSC 317 101"],
+            "sections2":["CPSC 317 201"],
+            "tutorials1":["CPSC 317 T1A", "CPSC 317 T1B", "CPSC 317 T1C"],
+            "tutorials2":["CPSC 317 T2A", "CPSC 317 T2B", "CPSC 317 T2C"],
+            "labs1":[],
+            "labs2":[]
+
+        },
+        {
+            "status":"Full",
+            "start":"14:00",
+            "term":1,
+            "end":"15:00",
+            "activity":"Lecture",
+            "section":"CPSC 317 101",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"13:00",
+            "term":1,
+            "end":"14:00",
+            "activity":"Tutorial",
+            "section":"CPSC 317 T1A",
+            "interval":"",
+            "days":[
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"15:30",
+            "term":1,
+            "end":"16:30",
+            "activity":"Tutorial",
+            "section":"CPSC 317 T1B",
+            "interval":"",
+            "days":[
+                "Thu"
+            ]
+        },
+        {
+            "status":"",
+            "start":"12:00",
+            "term":1,
+            "end":"13:00",
+            "activity":"Tutorial",
+            "section":"CPSC 317 T1C",
+            "interval":"",
+            "days":[
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"14:00",
+            "term":1,
+            "end":"15:00",
+            "activity":"Waiting List",
+            "section":"CPSC 317 1W1",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"Full",
+            "start":"15:00",
+            "term":2,
+            "end":"16:00",
+            "activity":"Lecture",
+            "section":"CPSC 317 201",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"15:30",
+            "term":2,
+            "end":"16:30",
+            "activity":"Tutorial",
+            "section":"CPSC 317 T2A",
+            "interval":"",
+            "days":[
+                "Thu"
+            ]
+        },
+        {
+            "status":"",
+            "start":"14:00",
+            "term":2,
+            "end":"15:00",
+            "activity":"Tutorial",
+            "section":"CPSC 317 T2B",
+            "interval":"",
+            "days":[
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"12:00",
+            "term":2,
+            "end":"13:00",
+            "activity":"Tutorial",
+            "section":"CPSC 317 T2C",
+            "interval":"",
+            "days":[
+                "Fri"
+            ]
+        },
+        {
+            "status":"",
+            "start":"15:00",
+            "term":2,
+            "end":"16:00",
+            "activity":"Waiting List",
+            "section":"CPSC 317 2W1",
+            "interval":"",
+            "days":[
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        }
+    ];*/
+
+
+    //var course;
 
 
     //Fullcalendar Initialisation
-    var calendar = $("#calendar").fullCalendar({
+    var calendar_term1 = $("#calendar").fullCalendar({
+        eventStartEditable: false,
+        eventDurationEditable: false,
         droppable: true,
         minTime: "08:00:00",
-        defaultView: 'month',
+        defaultView: "agendaWeek",
+        firstDay: 1,
+        weekends: false,
         theme: false,
+        defaultDate: "2015-08-24",
         header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            left: "none",
+            center: "none",
+            right: "none"
         },
-        googleCalendarApiKey: 'AIzaSyDwfIYK0yFpamboP365yLvc1E4sT18HL7I',
-        events: {
-            googleCalendarId: 'umhhqhqcoctmrlqlll8hgtktmk@group.calendar.google.com',
-
+        columnFormat: {
+            month: 'ddd',
+            week: 'ddd',
+            day: 'dddd M/d'
         },
-        dayClick: function (date, jsEvent, view) {
+        /*googleCalendarApiKey: 'AIzaSyDwfIYK0yFpamboP365yLvc1E4sT18HL7I',
+         events: {
+         googleCalendarId: 'umhhqhqcoctmrlqlll8hgtktmk@group.calendar.google.com',
 
-            alert('Clicked on: ' + date.format());
-
-            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-            alert('Current view: ' + view.name);
-
-            // change the day's background color just for fun
-            $(this).css('background-color', 'red');
-
-        }
+         },*/
     });
 
     //Add button click event handler
     $("#add-button").popover().click(function () {
-        var ddMenus = [];
-        var ddItems = [[],[],[]];
-        var deleteButtons = [];
-        var ddButtons = [];
+
+        var lecture_events_term1 = [];
+        var tutorial_events_term1 = [];
+        var lab_events_term1 = [];
+
+        var lecture_events_term2 = [];
+        var tutorial_events_term2 = [];
+        var lab_events_term2 = [];
 
         var tag = $("#coursecode").val();
         tag = tag.trim().replace(/\s+/g, "");
-
-        for(var i = 0; i < 3; i++){
-            ddMenus[i] = $("<ul>").addClass("dropdown-menu");
-            for (var j = 0; j < 2; j++){
-                ddItems[i][j] = $("<li>").text("item"+j);
-                ddMenus[i].append(ddItems[i][j]);
-            }
-        }
-
-        for (var i = 0; i < 3; i++){
-            deleteButtons[i] = $("<button>").button({
-                icons: {primary: "ui-icon-close"},
-                text: false
-            }).click(function () {
-                    $(this).parent().remove();
-            });
-        }
-
-        function menuToggle(currentI){
-            return function(){
-                ddMenus[currentI].toggle();
-            };
-        }
-
-        for(var i = 0; i < 3; i++){
-            ddButtons[i] = $("<a>").button({
-                icons: {primary: "ui-icon-triangle-1-s"},
-                text: false
-            }).addClass("dpb-butt").click(menuToggle(i));
-        }
 
         //No course code entered
         if (tag.length == 0) {
@@ -162,84 +663,210 @@ main = function () {
             var department = tag.substr(0, 4).toUpperCase();
             var code = tag.substr(4).trim().toUpperCase();
 
+
             /*$.ajax({
-             //type: "GET",
-             url: "http://192.168.99.100:8083/departments/"+department+"/courses/"+code+"/sections",
-             dataType: "json",
-             crossDomain: true,
-             success: function(data){
-             validCode(data);
-             }
-             });*/
+                dataType: "jsonp",
+                data: "id=10",
+                //type: "GET",
+                url: "http://192.168.99.100:8083/departments/" + department + "/courses/" + code + "/sections",
+                success: function (data) {
+                    validCode(data);
+                }
+            });
 
-            //var validCode = function(courseinfo){
-            //var obj = JSON.parse(course);
-            //Valid Course Code
+            var validCode = function (courseinfo) {
+                course = JSON.parse(courseinfo);
 
+            };*/
 
-            for (var i = 0; i < course.length; i++) {
+            function determineDay(day) {
+                switch (day) {
+                    case "Mon":
+                        return "2015-08-24 ";
+                    case "Tue":
+                        return "2015-08-25 ";
+                    case "Wed":
+                        return "2015-08-26 ";
+                    case "Thu":
+                        return "2015-08-27 ";
+                    case "Fri":
+                        return "2015-08-28 ";
+                }
+            }
+
+            var index1_lec = lecture_events_term1.length;
+            var index2_lec = lecture_events_term2.length;
+
+            var index1_tut = tutorial_events_term1.length;
+            var index2_tut = tutorial_events_term2.length;
+
+            var index1_lab = lab_events_term1.length;
+            var index2_lab = lab_events_term2.length;
+
+            function eventCreate(listOfEvents, current, indE, indJ){
+                listOfEvents[indE] = {
+                    id: current.section,
+                    title: current.section,
+                    start: determineDay(current.days[indJ]) + current.start + ":00",
+                    end: determineDay(current.days[indJ]) + current.end + ":00",
+                    allDay: false,
+                    editable: true
+                };
+            }
+
+            for (var i = 1; i < course.length; i++) {
                 if (course[i].activity == "Lecture") {
-                    var lecture = new Object();
-                    var start_time;
-                    var end_time;
-                    if (course[i].term == "2") {
-                        start_time = "2015-09-17 " + course[i].start + ":00";
-                        end_time = "2015-09-17 " + course[i].end + ":00";
+                    if (course[i].term == 1) {
+                        for (var j = 0; j < course[i].days.length; j++){
+                            eventCreate(lecture_events_term1, course[i], index1_lec, j);
+                            index1_lec++;
+                        }
                     } else {
-                        start_time = "2015-09-14 " + course[i].start + ":00";
-                        end_time = "2015-09-14 " + course[i].end + ":00";
+                        for (var j = 0; j < course[i].days.length; j++){
+                            eventCreate(lecture_events_term2, course[i], index2_lec, j);
+                            index2_lec++;
+                        }
                     }
-                    lecture.title = course[i].section;
-                    lecture.allDay = false;
-                    lecture.start = start_time;
-                    lecture.end = end_time;
-                    lecture.editable = false;
-                    //calendar.fullCalendar('renderEvent', lecture, true);
-                    lecture_events.push(lecture);
                 }
                 else if (course[i].activity == "Tutorial") {
-
+                    if (course[i].term == 1) {
+                        for (var j = 0; j < course[i].days.length; j++){
+                            eventCreate(tutorial_events_term1, course[i], index1_tut, j);
+                            index1_tut++;
+                        }
+                    } else {
+                        for (var j = 0; j < course[i].days.length; j++){
+                            eventCreate(tutorial_events_term2, course[i], index2_tut, j);
+                            index2_tut++;
+                        }
+                    }
                 }
-                else if (course[i].activity == "Lab") {
-
-                }
-            }
-
-            /*$("<li>").text(tag).draggable({
-             zIndex: 999,
-             revert: true,
-             revertDuration: 0
-             }).addClass(".active-tags").append(deleteButton).appendTo(".course-tags").data("event", {
-             //REF  title: $.trim(obj.courses[0].course+" "+obj.courses[0].section),
-             title: tag,
-             stick: true,
-             editable: true,
-             start: '2015-08-25 09:00:00',
-             end: '2015-08-25 12:00:00'
-             });*/
-            function tagName(index){
-                switch(index){
-                    case 0:
-                        return tag+" Lec";
-                    case 1:
-                        return tag+" Tut";
-                    case 2:
-                        return tag+" Lab";
+                else if (course[i].activity == "Laboratory") {
+                    if (course[i].term == 1) {
+                        for (var j = 0; j < course[i].days.length; j++){
+                            eventCreate(lab_events_term1, course[i], index1_lab, j);
+                            index1_lab++;
+                        }
+                    } else {
+                        for (var j = 0; j < course[i].days.length; j++){
+                            eventCreate(lab_events_term2, course[i], index2_lab, j);
+                            index2_lab++;
+                        }
+                    }
                 }
             }
 
-            for(var i = 0; i < 3; i++){
-                $("<li>").text(tagName(i)).draggable({
+
+            function eventsRender(events) {
+                for (var i = 0; i < events.length; i++) {
+                    calendar_term1.fullCalendar('renderEvent', events[i], true);
+                }
+            }
+
+            eventsRender(lecture_events_term1);
+            //eventsRender(lecture_events_term2);
+            eventsRender(tutorial_events_term1);
+            //eventsRender(tutorial_events_term2);
+            eventsRender(lab_events_term1);
+            //eventsRender(lab_events_term2);
+
+
+            var numSection = course[0].sections1.length;
+            var numTutorial = course[0].tutorials1.length;
+            var numLaboratory = course[0].labs1.length;
+
+
+            function createDropdownMenu() {
+                return $("<ul>").addClass("dropdown-menu");
+            }
+
+            function createCheckBox(){
+                return $('<input />', {
+                    type: 'checkbox',
+                    id: 'cb' + j
+                }).addClass("dd-check-boxes");
+            }
+
+            function createItem(checkBox,tag,section){
+                return $("<li>").text(tag).addClass("dd-options").append(checkBox).data("event", section);
+            }
+
+            function populateDropdownMenu(num, ddMenu,ddCB, ddItems, tags,sections){
+                for (var i = 0; i < num; i++) {
+                    ddCB[i] = createCheckBox();
+                    ddItems[i] = createItem(ddCB[i],tags[i],sections[i]);
+                    ddMenu.append(ddItems[i]);
+                }
+            }
+
+            function createDeleteButton(){
+                return $("<button>").button({
+                    icons: {primary: "ui-icon-close"},
+                    text: false,
+                    type: "button"
+                }).addClass("dd-delete-buttons");
+            }
+
+            function createToggleButton(ddMenu){
+                return $("<a>").button({
+                    icons: {primary: "ui-icon-triangle-1-s"},
+                    text: false
+                }).addClass("dpb-butt").click(function(){ddMenu.toggle()});
+            }
+
+            function createTag(tagName, ddMenu, toggleButton, deleteButton){
+                $("<li>").text(tagName).draggable({
                     zIndex: 999,
                     revert: true,
                     revertDuration: 0
-                }).append(ddMenus[i]).append(ddButtons[i]).append(deleteButtons[i]).appendTo(".course-tags");
+                }).append(ddMenu).append(toggleButton).append(deleteButton).appendTo(".course-tags").addClass("course-tag").data("event", {
+                    title: tag,
+                    stick: true,
+                    editable: true,
+                    start: '2015-08-25 13:00:00',
+                    end: '2015-08-25 15:00:00'
+                });
             }
+
+
+            if(course[0].hasSection == true){
+                var sectionCB = [];
+                var sectionItems = [];
+                var sectionDD = createDropdownMenu();
+                populateDropdownMenu(numSection, sectionDD, sectionCB, sectionItems, course[0].sections1,lecture_events_term1);
+                var sectionDB = createDeleteButton();
+                var sectionTB = createToggleButton(sectionDD);
+                createTag(department+code+" Lec", sectionDD,sectionTB, sectionDB);
+            }
+
+            if(course[0].hasTutorial == true){
+                var tutorialCB = [];
+                var tutorialItems = [];
+                var tutorialDD = createDropdownMenu();
+                populateDropdownMenu(numTutorial, tutorialDD, tutorialCB, tutorialItems, course[0].tutorials1,tutorial_events_term1);
+                var tutorialDB = createDeleteButton();
+                var tutorialTB = createToggleButton(tutorialDD);
+                createTag(department+code+" Tut", tutorialDD, tutorialTB, tutorialDB);
+            }
+
+            if(course[0].hasLaboratory == true){
+                var laboratoryCB = [];
+                var laboratoryItems = [];
+                var laboratoryDD = createDropdownMenu();
+                populateDropdownMenu(numLaboratory, laboratoryDD, laboratoryCB, laboratoryItems, course[0].labs1,lab_events_term1);
+                var laboratoryDB = createDeleteButton();
+                var laboratoryTB = createToggleButton(laboratoryDD);
+                createTag(department+code+" Lab", laboratoryDD, laboratoryTB, laboratoryDB);
+            }
+
             $("#coursecode").val("");
         }
-
-
         //Page doesn't go to top every time an element is added
+        return false;
+    });
+
+    $(".course-tags").on("click", ".dd-delete-buttons", function(){
+        $(this).closest(".course-tag").remove();
         return false;
     });
 
@@ -256,27 +883,7 @@ main = function () {
         editable: true
     };
 
-    var psyc350a = {
-        id: '313',
-        title: course[0].section,
-        start: "2015-09-14 " + course[0].start + ":00",
-        end: "2015-09-14 " + course[0].end + ":00",
-        allDay: false,
-        editable: true
-    };
-
-
-    calendar.fullCalendar('renderEvent', cpsc310, true);
-    //calendar.fullCalendar('renderEvent', psyc350a, true);
-    //calendar.fullCalendar('addEventSource', lecture_events);
-    //calendar.fullCalendar( 'rerenderEvents' )
-
-    /*function eventsRender(events){
-     for (var i =0; i < events.length; i++){
-     calendar.fullCalendar('renderEvent', events[i], true);
-     }
-     }
-     eventsRender(lecture_events);*/
+    calendar_term1.fullCalendar('renderEvent', cpsc310, true);
 };
 
 //Function execute when HTML doc is loaded
