@@ -1,8 +1,0 @@
-<VirtualHost *:80>
-	ProxyPreserveHost On
-	ProxyPass /ui http://ui/
-	ProxyPassReverse /backend http://scraper/     
-	ErrorLog ${APACHE_LOG_DIR}/error.log
-        LogLevel warn
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
