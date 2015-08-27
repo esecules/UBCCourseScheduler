@@ -573,6 +573,8 @@ main = function () {
             //TODO: for now make everything for term 1 only
             //TODO: sections_term1, tutorials_term1, labs_term1
             //TODO: take out the MAIN for loop below
+            //TODO: integrate functions with the next section where tags, buttons and dropdowns are created
+            
             for (var i = 1; i < course.length; i++) {
                 if (course[i].activity == "Lecture") {
                     if (course[i].term == 1) {
