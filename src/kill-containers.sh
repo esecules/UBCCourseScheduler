@@ -1,4 +1,4 @@
 #! /usr/bin/env bash
 
-docker kill redis scraper ui
-docker rm redis scraper ui
+docker kill proxy scraper ui
+docker rm proxy scraper ui

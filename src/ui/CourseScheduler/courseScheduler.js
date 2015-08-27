@@ -4,7 +4,7 @@
 var main;
 
 main = function () {
-    var course = [
+    /*var course = [
         {
             "hasSection": true,
             "hasTutorial":false,
@@ -575,7 +575,7 @@ main = function () {
     ];*/
 
 
-    //var course;
+    var course;
 
 
     //Fullcalendar Initialisation
@@ -664,20 +664,25 @@ main = function () {
             var code = tag.substr(4).trim().toUpperCase();
 
 
-            /*$.ajax({
-                dataType: "jsonp",
-                data: "id=10",
-                //type: "GET",
-                url: "http://192.168.99.100:8083/departments/" + department + "/courses/" + code + "/sections",
+            $.ajax({
+                dataType: "json",
+                type: "GET",
+                url: "http://localhost:8080/backend/departments/" + department + "/courses/" + code + "/sections",
                 success: function (data) {
-                    validCode(data);
-                }
+		    console.log(data);
+		    validCode(data);
+                },
+		error: function(xhr, ajaxOptions, exception){
+		    alert(xhr.responseText);
+		    alert(thrownError);
+		}
             });
 
             var validCode = function (courseinfo) {
-                course = JSON.parse(courseinfo);
+		course = courseinfo
+		//course = JSON.parse(courseinfo);
 
-            };*/
+            };
 
             function determineDay(day) {
                 switch (day) {

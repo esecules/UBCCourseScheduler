@@ -22,6 +22,7 @@ def get_sections(dept, course):
         sections_json = json.dumps(sections)
     except Exception as e:
         logger.error(traceback.format_exc())
+        abort(500)
     return sections_json
 
 if __name__ == '__main__':

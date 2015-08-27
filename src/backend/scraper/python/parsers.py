@@ -23,15 +23,17 @@ class SectionParser(object):
                 status = cols[0].string.strip() if isinstance(cols[0].string, basestring) else ''
                 interval = cols[4].string.strip() if isinstance(cols[4].string, basestring) else ''
                 # If any of the rest of the strings are None, dont include the row in the output
-                sections.append({'status': status,
-                                 'section': cols[1].a.string.replace('\n','').replace('  ',''),
-                                 'activity': cols[2].string,
-                                 'term': cols[3].string.split('-'),
-                                 'interval': interval,
-                                 'days': cols[5].string.strip().split(' '),
-                                 'start': cols[6].string,
-                                 'end': cols[7].string
-                             })
+                section = cols[1].a.string.replace('\n','').replace('  ','')
+                if section not in [s["section"] for s in sections]:
+                    sections.append({'status': status,
+                                     'section': section,
+                                     'activity': cols[2].string,
+                                     'term': cols[3].string.split('-'),
+                                     'interval': interval,
+                                     'days': cols[5].string.strip().split(' '),
+                                     'start': cols[6].string,
+                                     'end': cols[7].string
+                                 })
             except AttributeError:
                 continue
             

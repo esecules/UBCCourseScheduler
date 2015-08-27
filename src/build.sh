@@ -7,3 +7,7 @@ popd
 pushd ./backend/scraper
 ./build.sh
 popd
+
+pushd ./backend/proxy
+./build.sh
+popd
