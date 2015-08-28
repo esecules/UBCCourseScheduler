@@ -281,6 +281,41 @@ main = function () {
          },*/
     });
 
+    var calendar_term2 = $("#calendar2").fullCalendar({
+        eventStartEditable: false,
+        eventDurationEditable: false,
+        droppable: true,
+        minTime: "08:00:00",
+        defaultView: "agendaWeek",
+        firstDay: 1,
+        weekends: false,
+        theme: false,
+        defaultDate: "2015-08-24",
+        header: {
+            left: "none",
+            center: "none",
+            right: "none"
+        },
+        columnFormat: {
+            month: 'ddd',
+            week: 'ddd',
+            day: 'dddd M/d'
+        },
+        /*googleCalendarApiKey: 'AIzaSyDwfIYK0yFpamboP365yLvc1E4sT18HL7I',
+         events: {
+         googleCalendarId: 'umhhqhqcoctmrlqlll8hgtktmk@group.calendar.google.com',
+
+         },*/
+    });
+
+    $('.fc-toolbar').remove();
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        $('#calendar').fullCalendar('render');
+        $('#calendar2').fullCalendar('render');
+    });
+    //$('#switchTabs a:first').tab('show');
+
     //Add button click event handler
     $("#add-button").popover().click(function () {
 
@@ -528,7 +563,19 @@ main = function () {
         editable: true
     };
 
+    var cpsc313 = {
+        id: '313',
+        title: 'CPSC 313 Lecture',
+        start: '2015-08-26 09:00:00',
+        end: '2015-08-26 11:00:00',
+        allDay: false,
+
+        location: 'DMP 110',
+        editable: true
+    };
+
     calendar_term1.fullCalendar('renderEvent', cpsc310, true);
+    calendar_term2.fullCalendar('renderEvent', cpsc313, true);
 };
 
 //Function execute when HTML doc is loaded

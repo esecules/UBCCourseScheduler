@@ -32,8 +32,16 @@ body{
     padding-right:5px;
 }
 
+#diyScheduler .nav-tabs{
+    padding-top:20px;
+}
+
 #diyScheduler #calendar{
-    padding-top:14px;
+    padding-top:10px;
+}
+
+#diyScheduler #calendar2{
+    padding-top:10px;
 }
 
 #diyScheduler .fc-toolbar .fc-center h2{
@@ -50,7 +58,7 @@ body{
 }
 
 #diyScheduler .course-input .container-fluid{
-    margin-top:50px;
+    margin-top:71px;
     padding:0px;
 }
 
