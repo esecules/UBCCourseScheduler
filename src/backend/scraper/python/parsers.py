@@ -36,5 +36,21 @@ class SectionParser(object):
                                  })
             except AttributeError:
                 continue
-            
-        return sections
+        response = [{
+            "hasSection": "Lecture" in [s["activity"] for s in sections],
+            "hasTutorial": "Tutorial" in [s["activity"] for s in sections],
+            "hasLaboratory": "Laboratory" in [s["activity"] for s in sections],
+            "sections1": [s["section"] for s in sections if "1" in s["term"] and s["activity"] == "Lecture"],
+            "sections2": [s["section"] for s in sections if "2" in s["term"] and s["activity"] == "Lecture"],
+            "tutorials1": [s["section"] for s in sections if "1" in s["term"] and s["activity"] == "Tutorial"],
+            "tutorials2": [s["section"] for s in sections if "2" in s["term"] and s["activity"] == "Tutorial"],
+            "labs1": [s["section"] for s in sections if "1" in s["term"] and s["activity"] == "Laboratory"],
+            "labs2": [s["section"] for s in sections if "2" in s["term"] and s["activity"] == "Laboratory"],
+            "sections_term1": [s for s in sections if "1" in s["term"] and s["activity"] == "Lecture"],
+            "sections_term2": [s for s in sections if "2" in s["term"] and s["activity"] == "Lecture"],
+            "labs_term1": [s for s in sections if "1" in s["term"] and s["activity"] == "Laboratory"],
+            "labs_term2": [s for s in sections if "2" in s["term"] and s["activity"] == "Laboratory"],
+            "tutorials_term1": [s for s in sections if "1" in s["term"] and s["activity"] == "Tutorial"],
+            "tutorials_term2": [s for s in sections if "2" in s["term"] and s["activity"] == "Tutorial"],
+            }]
+        return response

@@ -4,7 +4,7 @@
 var main;
 
 main = function () {
-    var course = [
+    /*var course = [
         {
             "hasSection": true,
             "hasTutorial": false,
@@ -246,7 +246,7 @@ main = function () {
                     ]
                 }]
         }
-    ];
+    ];*/
     /*var course = [
         {
             "status": "Full",
@@ -512,25 +512,25 @@ main = function () {
             var code = tag.substr(4).trim().toUpperCase();
 
 
-            /*$.ajax({
+            $.ajax({
                 dataType: "json",
                 type: "GET",
                 url: "http://localhost:8080/backend/departments/" + department + "/courses/" + code + "/sections",
                 success: function (data) {
-		    console.log(data);
-		    validCode(data);
+                    console.log(data);
+                    validCode(data);
                 },
-		error: function(xhr, ajaxOptions, exception){
-		    alert(xhr.responseText);
-		    alert(thrownError);
-		}
+                error: function(xhr, ajaxOptions, exception){
+                    alert(xhr.responseText);
+                    alert(thrownError);
+                }
             });
 
             var validCode = function (courseinfo) {
-		course = courseinfo
-		//course = JSON.parse(courseinfo);
+                course = courseinfo
+                //course = JSON.parse(courseinfo);
 
-            };*/
+
 
             var numSection1 = course[0].sections_term1.length;
             var numTutorial1 = course[0].tutorials_term1.length;
@@ -662,7 +662,7 @@ main = function () {
             }
 
             $("#coursecode").val("");
-        }
+            }};
         //Page doesn't go to top every time an element is added
         return false;
     });
@@ -682,9 +682,9 @@ main = function () {
         .on("click",".dd-check-boxes", function(){
         if($(".dd-check-boxes").is(":checked")){
             eventsRender($(this).parent(".dd-options").data("event"));
-        } else if($(".dd-check-boxes").prop('checked', false)){
+        } /*else if($(".dd-check-boxes").prop('checked', false)){
             alert( $(this).parent(".dd-options").data("event").section);
-        }
+        }*/
     });
 
     /*$(".course-tags").on("click",".dd-check-boxes", function(){
