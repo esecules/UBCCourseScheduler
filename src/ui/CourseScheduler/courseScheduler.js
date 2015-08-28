@@ -4,7 +4,7 @@
 var main;
 
 main = function () {
-    /*var course = [
+    var course = [
         {
             "hasSection": true,
             "hasTutorial": false,
@@ -61,6 +61,8 @@ main = function () {
                         "Fri"
                     ]
                 }],
+            "tutorials_term1":[],
+            "tutorials_term2":[],
             "labs_term1": [
                 {
                     "status": "",
@@ -463,14 +465,6 @@ main = function () {
     //Add button click event handler
     $("#add-button").popover().click(function () {
 
-        var lecture_events_term1 = [];
-        var tutorial_events_term1 = [];
-        var lab_events_term1 = [];
-
-        var lecture_events_term2 = [];
-        var tutorial_events_term2 = [];
-        var lab_events_term2 = [];
-
         var tag = $("#coursecode").val();
         tag = tag.trim().replace(/\s+/g, "");
 
@@ -518,7 +512,7 @@ main = function () {
             var code = tag.substr(4).trim().toUpperCase();
 
 
-            $.ajax({
+            /*$.ajax({
                 dataType: "json",
                 type: "GET",
                 url: "http://localhost:8080/backend/departments/" + department + "/courses/" + code + "/sections",
@@ -536,7 +530,22 @@ main = function () {
 		course = courseinfo
 		//course = JSON.parse(courseinfo);
 
-            };
+            };*/
+
+            var numSection1 = course[0].sections_term1.length;
+            var numTutorial1 = course[0].tutorials_term1.length;
+            var numLaboratory1 = course[0].labs_term1.length;
+
+
+            function createDropdownMenu() {
+                return $("<ul>").addClass("dropdown-menu");
+            }
+
+            function createCheckBox(){
+                return $('<input />', {
+                    type: 'checkbox'
+                }).addClass("dd-check-boxes");
+            }
 
             function determineDay(day) {
                 switch (day) {
@@ -553,17 +562,9 @@ main = function () {
                 }
             }
 
-            var index1_lec = lecture_events_term1.length;
-            var index2_lec = lecture_events_term2.length;
 
-            var index1_tut = tutorial_events_term1.length;
-            var index2_tut = tutorial_events_term2.length;
-
-            var index1_lab = lab_events_term1.length;
-            var index2_lab = lab_events_term2.length;
-
-            function eventCreate(listOfEvents, current, indE, indJ){
-                listOfEvents[indE] = {
+            function eventCreate(listOfEvents, current, indJ){
+               listOfEvents[indJ] = {
                     id: current.section,
                     title: current.section,
                     start: determineDay(current.days[indJ]) + current.start + ":00",
@@ -573,94 +574,35 @@ main = function () {
                 };
             }
 
-
-            //TODO: change below code to suit the need of new json dad structure
-            //TODO: for now make everything for term 1 only
-            //TODO: sections_term1, tutorials_term1, labs_term1
-            //TODO: take out the MAIN for loop below
-            //TODO: integrate functions with the next section where tags, buttons and dropdowns are created
-            
-            for (var i = 1; i < course.length; i++) {
-                if (course[i].activity == "Lecture") {
-                    if (course[i].term == 1) {
-                        for (var j = 0; j < course[i].days.length; j++){
-                            eventCreate(lecture_events_term1, course[i], index1_lec, j);
-                            index1_lec++;
-                        }
-                    } else {
-                        for (var j = 0; j < course[i].days.length; j++){
-                            eventCreate(lecture_events_term2, course[i], index2_lec, j);
-                            index2_lec++;
-                        }
+            function iterateCourse(index,identifier){
+                var array = [];
+                if(identifier == "lecture"){
+                    for (var j = 0; j < course[0].sections_term1[index].days.length; j++){
+                        eventCreate(array,course[0].sections_term1[index],j);
                     }
-                }
-                else if (course[i].activity == "Tutorial") {
-                    if (course[i].term == 1) {
-                        for (var j = 0; j < course[i].days.length; j++){
-                            eventCreate(tutorial_events_term1, course[i], index1_tut, j);
-                            index1_tut++;
-                        }
-                    } else {
-                        for (var j = 0; j < course[i].days.length; j++){
-                            eventCreate(tutorial_events_term2, course[i], index2_tut, j);
-                            index2_tut++;
-                        }
+                    return array;
+                }else if(identifier == "tutorial"){
+                    for (var j = 0; j < course[0].tutorials_term1[index].days.length; j++){
+                        eventCreate(array,course[0].tutorials_term1[index],j);
                     }
-                }
-                else if (course[i].activity == "Laboratory") {
-                    if (course[i].term == 1) {
-                        for (var j = 0; j < course[i].days.length; j++){
-                            eventCreate(lab_events_term1, course[i], index1_lab, j);
-                            index1_lab++;
-                        }
-                    } else {
-                        for (var j = 0; j < course[i].days.length; j++){
-                            eventCreate(lab_events_term2, course[i], index2_lab, j);
-                            index2_lab++;
-                        }
+                    return array;
+                }else if(identifier == "laboratory"){
+                    for (var j = 0; j < course[0].labs_term1[index].days.length; j++){
+                        eventCreate(array,course[0].labs_term1[index],j);
                     }
+                    return array;
                 }
             }
 
-
-            function eventsRender(events) {
-                for (var i = 0; i < events.length; i++) {
-                    calendar_term1.fullCalendar('renderEvent', events[i], true);
-                }
+            function createItem(checkBox,tag,index,identifier){
+                return $("<li>").text(tag).addClass("dd-options").append(checkBox)
+                    .data("event",iterateCourse(index,identifier));
             }
 
-            //eventsRender(lecture_events_term1);
-            //eventsRender(lecture_events_term2);
-            //eventsRender(tutorial_events_term1);
-            //eventsRender(tutorial_events_term2);
-            //eventsRender(lab_events_term1);
-            //eventsRender(lab_events_term2);
-
-
-            var numSection1 = course[0].sections1.length;
-            var numTutorial1 = course[0].tutorials1.length;
-            var numLaboratory1 = course[0].labs1.length;
-
-
-            function createDropdownMenu() {
-                return $("<ul>").addClass("dropdown-menu");
-            }
-
-            function createCheckBox(){
-                return $('<input />', {
-                    type: 'checkbox',
-                    id: 'cb' + j
-                }).addClass("dd-check-boxes");
-            }
-
-            function createItem(checkBox,tag,section){
-                return $("<li>").text(tag).addClass("dd-options").append(checkBox).data("event",section);
-            }
-
-            function populateDropdownMenu(num, ddMenu,ddCB, ddItems, tags,sections){
+            function populateDropdownMenu(num, ddMenu,ddCB, ddItems,tags, identifier){
                 for (var i = 0; i < num; i++) {
                     ddCB[i] = createCheckBox();
-                    ddItems[i] = createItem(ddCB[i],tags[i],sections[i]);
+                    ddItems[i] = createItem(ddCB[i],tags[i],i,identifier);
                     ddMenu.append(ddItems[i]);
                 }
             }
@@ -693,7 +635,7 @@ main = function () {
                 var sectionCB = [];
                 var sectionItems = [];
                 var sectionDD = createDropdownMenu();
-                populateDropdownMenu(numSection1, sectionDD, sectionCB, sectionItems, course[0].sections1,lecture_events_term1);
+                populateDropdownMenu(numSection1, sectionDD, sectionCB, sectionItems,course[0].sections1 ,"lecture");
                 var sectionDB = createDeleteButton();
                 var sectionTB = createToggleButton(sectionDD);
                 createTag(department+code+" Lec", sectionDD,sectionTB, sectionDB);
@@ -703,7 +645,7 @@ main = function () {
                 var tutorialCB = [];
                 var tutorialItems = [];
                 var tutorialDD = createDropdownMenu();
-                populateDropdownMenu(numTutorial1, tutorialDD, tutorialCB, tutorialItems, course[0].tutorials1,tutorial_events_term1);
+                populateDropdownMenu(numTutorial1, tutorialDD, tutorialCB, tutorialItems,course[0].tutorials1, "tutorial");
                 var tutorialDB = createDeleteButton();
                 var tutorialTB = createToggleButton(tutorialDD);
                 createTag(department+code+" Tut", tutorialDD, tutorialTB, tutorialDB);
@@ -713,7 +655,7 @@ main = function () {
                 var laboratoryCB = [];
                 var laboratoryItems = [];
                 var laboratoryDD = createDropdownMenu();
-                populateDropdownMenu(numLaboratory1, laboratoryDD, laboratoryCB, laboratoryItems, course[0].labs1,lab_events_term1);
+                populateDropdownMenu(numLaboratory1, laboratoryDD, laboratoryCB, laboratoryItems,course[0].labs1, "laboratory");
                 var laboratoryDB = createDeleteButton();
                 var laboratoryTB = createToggleButton(laboratoryDD);
                 createTag(department+code+" Lab", laboratoryDD, laboratoryTB, laboratoryDB);
@@ -725,23 +667,31 @@ main = function () {
         return false;
     });
 
-    /*function eventsRender(events) {
+    function eventsRender(events) {
         for (var i = 0; i < events.length; i++) {
             calendar_term1.fullCalendar('renderEvent', events[i], true);
         }
-    }*/
+    }
 
-    $(".course-tags").on("click", ".dd-delete-buttons", function(){
+
+    $(".course-tags")
+        .on("click", ".dd-delete-buttons", function(){
         $(this).closest(".course-tag").remove();
         return false;
-    });
-
-    $(".course-tags").on("click",".dd-check-boxes", function(){
+    })
+        .on("click",".dd-check-boxes", function(){
         if($(".dd-check-boxes").is(":checked")){
-            //alert($(this).parent(".dd-options").data("event").title);
-            //calendar_term1.fullCalendar('renderEvent', $(this).parent(".dd-options").data("event"), true);
+            eventsRender($(this).parent(".dd-options").data("event"));
+        } else if($(".dd-check-boxes").prop('checked', false)){
+            alert( $(this).parent(".dd-options").data("event").section);
         }
     });
+
+    /*$(".course-tags").on("click",".dd-check-boxes", function(){
+        if($(".dd-check-boxes").is(":checked")){
+            eventsRender($(this).parent(".dd-options").data("event"));
+        }
+    });*/
 
 
     //TEST: manually added event object
