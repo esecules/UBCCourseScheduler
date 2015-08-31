@@ -18,12 +18,30 @@ body{
     margin-top: 150px;
 }
 
-#mainPage h1,p{
+#mainPage h1,h4{
     color: white;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
     margin: 40px auto;
+}
+
+#mainPage #koalasw-git{
+    border: solid;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+#mainPage #koalasw-git:hover{
+    color:#2780e3;
+    background: #fff;
+    z-index: 2;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 #diyScheduler{
@@ -202,15 +220,72 @@ body{
 }
 
 #contact h2{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
-/*#ericimg, #tiffanyimg{
-    display:inline;
-    horizontal-align: center;
-}*/
+#contact .eric{
+    margin-top:60px;
+    margin-bottom: 10px;
+}
 
+
+#contact .tiffany{
+
+}
+
+#contact #eric-email, #tiff-email{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #4a4a4a;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+
+#contact #eric-git, #tiff-git{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #4a4a4a;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+
+#contact #eric-linkedin, #tiff-linkedin{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #4a4a4a;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+#contact #eric-email:hover, #tiff-email:hover{
+    color: #ff2060;
+    background: #fff;
+    z-index: 2;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+#contact #eric-git:hover, #tiff-git:hover{
+    color: #ff7200;
+    background: #fff;
+    z-index: 2;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+#contact #eric-linkedin:hover, #tiff-linkedin:hover{
+    color:#2780e3;
+    background: #fff;
+    z-index: 2;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
 
 
 
