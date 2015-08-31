@@ -2,15 +2,25 @@ body{
     position:relative;
 }
 
-#mainPage, #autoCalendar, #contact{
+#mainPage, #autoScheduler, #contact{
     padding-top:50px;
 }
 
-#mainPage{
+#mainpage-body{
+    background: url(../img/header.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
+#mainPage{
+    margin-top: 150px;
 }
 
 #mainPage h1,p{
+    color: white;
+    font-weight: bold;
     text-align: center;
     vertical-align: middle;
     margin: 40px auto;
@@ -187,10 +197,21 @@ body{
     background-color: #c9c9c3;
 }
 
+#autoScheduler{
+    vertical-align: middle;
+}
+
 #contact h2{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+/*#ericimg, #tiffanyimg{
+    display:inline;
+    horizontal-align: center;
+}*/
+
+
 
 
 
