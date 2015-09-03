@@ -273,12 +273,7 @@ main = function () {
             month: 'ddd',
             week: 'ddd',
             day: 'dddd M/d'
-        },
-        /*googleCalendarApiKey: 'AIzaSyDwfIYK0yFpamboP365yLvc1E4sT18HL7I',
-         events: {
-         googleCalendarId: 'umhhqhqcoctmrlqlll8hgtktmk@group.calendar.google.com',
-
-         },*/
+        }
     });
 
     //Term 2 Fullcalendar Initialisation
@@ -301,20 +296,24 @@ main = function () {
             month: 'ddd',
             week: 'ddd',
             day: 'dddd M/d'
-        },
-        /*googleCalendarApiKey: 'AIzaSyDwfIYK0yFpamboP365yLvc1E4sT18HL7I',
-         events: {
-         googleCalendarId: 'umhhqhqcoctmrlqlll8hgtktmk@group.calendar.google.com',
-
-         },*/
+        }
     });
 
     $('.fc-toolbar').remove();
 
+    var activeTab;
+
+    $(function(){
+        $("#switchTabs a:first").tab('show');
+    });
+
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         $('#calendar').fullCalendar('render');
         $('#calendar2').fullCalendar('render');
+        activeTab = $(".tabbable li.active").attr("id");
+        $("#idDisplay").text(activeTab);
     });
+
 
     //Add button click event handler
     $("#add-button").popover().click(function () {
@@ -384,7 +383,6 @@ main = function () {
              course = courseinfo
              //course = JSON.parse(courseinfo);*/
 
-
             var numSection1 = course[0].sections_term1.length;
             var numTutorial1 = course[0].tutorials_term1.length;
             var numLaboratory1 = course[0].labs_term1.length;
@@ -430,35 +428,54 @@ main = function () {
                 };
             }
 
-            function iterateCourse(index, identifier) {
+            function iterateCourse(index, identifier, term) {
                 var array = [];
-                if (identifier == "lecture") {
-                    for (var j = 0; j < course[0].sections_term1[index].days.length; j++) {
-                        eventCreate(array, course[0].sections_term1[index], j);
+                if(term == 1){
+                    if (identifier == "lecture") {
+                        for (var j = 0; j < course[0].sections_term1[index].days.length; j++) {
+                            eventCreate(array, course[0].sections_term1[index], j);
+                        }
+                        return array;
+                    } else if (identifier == "tutorial") {
+                        for (var j = 0; j < course[0].tutorials_term1[index].days.length; j++) {
+                            eventCreate(array, course[0].tutorials_term1[index], j);
+                        }
+                        return array;
+                    } else if (identifier == "laboratory") {
+                        for (var j = 0; j < course[0].labs_term1[index].days.length; j++) {
+                            eventCreate(array, course[0].labs_term1[index], j);
+                        }
+                        return array;
                     }
-                    return array;
-                } else if (identifier == "tutorial") {
-                    for (var j = 0; j < course[0].tutorials_term1[index].days.length; j++) {
-                        eventCreate(array, course[0].tutorials_term1[index], j);
+                } else if(term == 2){
+                    if (identifier == "lecture") {
+                        for (var j = 0; j < course[0].sections_term2[index].days.length; j++) {
+                            eventCreate(array, course[0].sections_term2[index], j);
+                        }
+                        return array;
+                    } else if (identifier == "tutorial") {
+                        for (var j = 0; j < course[0].tutorials_term2[index].days.length; j++) {
+                            eventCreate(array, course[0].tutorials_term2[index], j);
+                        }
+                        return array;
+                    } else if (identifier == "laboratory") {
+                        for (var j = 0; j < course[0].labs_term2[index].days.length; j++) {
+                            eventCreate(array, course[0].labs_term2[index], j);
+                        }
+                        return array;
                     }
-                    return array;
-                } else if (identifier == "laboratory") {
-                    for (var j = 0; j < course[0].labs_term1[index].days.length; j++) {
-                        eventCreate(array, course[0].labs_term1[index], j);
-                    }
-                    return array;
                 }
             }
 
-            function createItem(checkBox, tag, index, identifier) {
+            function createItem(checkBox, tag, index, identifier, term) {
                 return $("<li>").text(tag).addClass("dd-options").append(checkBox)
-                    .data("event", iterateCourse(index, identifier));
+                    .data("event", iterateCourse(index, identifier, term));
             }
 
-            function populateDropdownMenu(num1, ddMenu, ddCB, ddItems, tags, identifier) {
-                for (var i = 0; i < num1 ; i++) {
+            function populateDropdownMenu(num, ddMenu, ddCB, ddItems, tags, identifier, term) {
+                for (var i = 0; i < num ; i++) {
                     ddCB[i] = createCheckBox();
-                    ddItems[i] = createItem(ddCB[i], tags[i], i, identifier);
+                    ddItems[i] = createItem(ddCB[i], tags[i], i, identifier, term);
                     ddMenu.append(ddItems[i]);
                 }
             }
@@ -480,145 +497,87 @@ main = function () {
                 });
             }
 
-            function createTag(tagName, ddMenu, toggleButton, deleteButton) {
-                $("<li>").text(tagName).draggable({
-                    zIndex: 999,
-                    revert: true,
-                    revertDuration: 0
-                }).append(ddMenu).append(toggleButton).append(deleteButton).appendTo(".course-tags").addClass("course-tag");
-            }
-
-
-            if (course[0].hasSection == true) {
-                var sectionCB = [];
-                var sectionItems = [];
-                var sectionDD = createDropdownMenu();
-                populateDropdownMenu(numSection1,sectionDD, sectionCB, sectionItems, course[0].sections1, "lecture");
-                var sectionDB = createDeleteButton();
-                var sectionTB = createToggleButton(sectionDD);
-                createTag(department + code + " Lec", sectionDD, sectionTB, sectionDB);
-            }
-
-            if (course[0].hasTutorial == true) {
-                var tutorialCB = [];
-                var tutorialItems = [];
-                var tutorialDD = createDropdownMenu();
-                populateDropdownMenu(numTutorial1,tutorialDD, tutorialCB, tutorialItems, course[0].tutorials1, "tutorial");
-                var tutorialDB = createDeleteButton();
-                var tutorialTB = createToggleButton(tutorialDD);
-                createTag(department + code + " Tut", tutorialDD, tutorialTB, tutorialDB);
-            }
-
-            if (course[0].hasLaboratory == true) {
-                var laboratoryCB = [];
-                var laboratoryItems = [];
-                var laboratoryDD = createDropdownMenu();
-                populateDropdownMenu(numLaboratory1,laboratoryDD, laboratoryCB, laboratoryItems, course[0].labs1, "laboratory");
-                var laboratoryDB = createDeleteButton();
-                var laboratoryTB = createToggleButton(laboratoryDD);
-                createTag(department + code + " Lab", laboratoryDD, laboratoryTB, laboratoryDB);
-            }
-
-
-            /*function eventCreate(listOfEvents, current, indJ) {
-                listOfEvents[indJ] = {
-                    id: current.section,
-                    title: current.section,
-                    start: determineDay(current.days[indJ]) + current.start + ":00",
-                    end: determineDay(current.days[indJ]) + current.end + ":00",
-                    allDay: false,
-                    editable: true
-                };
-            }
-
-            function iterateCourse(index, identifier) {
-                var array = [];
-                if (identifier == "lecture") {
-                    for (var j = 0; j < course[0].sections_term1[index].days.length; j++) {
-                        eventCreate(array, course[0].sections_term1[index], j);
-                    }
-                    return array;
-                } else if (identifier == "tutorial") {
-                    for (var j = 0; j < course[0].tutorials_term1[index].days.length; j++) {
-                        eventCreate(array, course[0].tutorials_term1[index], j);
-                    }
-                    return array;
-                } else if (identifier == "laboratory") {
-                    for (var j = 0; j < course[0].labs_term1[index].days.length; j++) {
-                        eventCreate(array, course[0].labs_term1[index], j);
-                    }
-                    return array;
+            function createTag(tagName, ddMenu, toggleButton, deleteButton, term) {
+                if(term == 1){
+                    $("<li>").text(tagName).draggable({
+                        zIndex: 999,
+                        revert: true,
+                        revertDuration: 0
+                    }).append(ddMenu).append(toggleButton).append(deleteButton).appendTo(".course-tags")
+                        .addClass("course-tag").addClass("term-1");
+                } else if(term == 2){
+                    $("<li>").text(tagName).draggable({
+                        zIndex: 999,
+                        revert: true,
+                        revertDuration: 0
+                    }).append(ddMenu).append(toggleButton).append(deleteButton).appendTo(".course-tags")
+                        .addClass("course-tag").addClass("term-2");
                 }
             }
 
-            function createItem(checkBox, tag, index, identifier) {
-                return $("<li>").text(tag).addClass("dd-options").append(checkBox)
-                    .data("event", iterateCourse(index, identifier));
-            }
+            if(activeTab == "term1"){
+                alert("TERM 1!!!!!");
+                if (course[0].hasSection == true) {
+                    var sectionCB = [];
+                    var sectionItems = [];
+                    var sectionDD = createDropdownMenu();
+                    populateDropdownMenu(numSection1,sectionDD, sectionCB, sectionItems, course[0].sections1, "lecture", 1);
+                    var sectionDB = createDeleteButton();
+                    var sectionTB = createToggleButton(sectionDD);
+                    createTag(department + code + " Lec", sectionDD, sectionTB, sectionDB, 1);
+                }
 
-            function populateDropdownMenu(num1, ddMenu, ddCB, ddItems, tags, identifier) {
-                for (var i = 0; i < num1 ; i++) {
-                    ddCB[i] = createCheckBox();
-                    ddItems[i] = createItem(ddCB[i], tags[i], i, identifier);
-                    ddMenu.append(ddItems[i]);
+                if (course[0].hasTutorial == true) {
+                    var tutorialCB = [];
+                    var tutorialItems = [];
+                    var tutorialDD = createDropdownMenu();
+                    populateDropdownMenu(numTutorial1,tutorialDD, tutorialCB, tutorialItems, course[0].tutorials1, "tutorial", 1);
+                    var tutorialDB = createDeleteButton();
+                    var tutorialTB = createToggleButton(tutorialDD);
+                    createTag(department + code + " Tut", tutorialDD, tutorialTB, tutorialDB, 1);
+                }
+
+                if (course[0].hasLaboratory == true) {
+                    var laboratoryCB = [];
+                    var laboratoryItems = [];
+                    var laboratoryDD = createDropdownMenu();
+                    populateDropdownMenu(numLaboratory1,laboratoryDD, laboratoryCB, laboratoryItems, course[0].labs1, "laboratory", 1);
+                    var laboratoryDB = createDeleteButton();
+                    var laboratoryTB = createToggleButton(laboratoryDD);
+                    createTag(department + code + " Lab", laboratoryDD, laboratoryTB, laboratoryDB, 1);
+                }
+            }else if(activeTab == "term2"){
+                alert("TERM 2!!!!!");
+                if (course[0].hasSection == true) {
+                    var sectionCB = [];
+                    var sectionItems = [];
+                    var sectionDD = createDropdownMenu();
+                    populateDropdownMenu(numSection2,sectionDD, sectionCB, sectionItems, course[0].sections2, "lecture", 2);
+                    var sectionDB = createDeleteButton();
+                    var sectionTB = createToggleButton(sectionDD);
+                    createTag(department + code + " Lec", sectionDD, sectionTB, sectionDB, 2);
+                }
+
+                if (course[0].hasTutorial == true) {
+                    var tutorialCB = [];
+                    var tutorialItems = [];
+                    var tutorialDD = createDropdownMenu();
+                    populateDropdownMenu(numTutorial2,tutorialDD, tutorialCB, tutorialItems, course[0].tutorials2, "tutorial", 2);
+                    var tutorialDB = createDeleteButton();
+                    var tutorialTB = createToggleButton(tutorialDD);
+                    createTag(department + code + " Tut", tutorialDD, tutorialTB, tutorialDB, 2);
+                }
+
+                if (course[0].hasLaboratory == true) {
+                    var laboratoryCB = [];
+                    var laboratoryItems = [];
+                    var laboratoryDD = createDropdownMenu();
+                    populateDropdownMenu(numLaboratory2,laboratoryDD, laboratoryCB, laboratoryItems, course[0].labs2, "laboratory", 2);
+                    var laboratoryDB = createDeleteButton();
+                    var laboratoryTB = createToggleButton(laboratoryDD);
+                    createTag(department + code + " Lab", laboratoryDD, laboratoryTB, laboratoryDB, 2);
                 }
             }
-
-            function createDeleteButton() {
-                return $("<button>").button({
-                    icons: {primary: "ui-icon-close"},
-                    text: false,
-                    type: "button"
-                }).addClass("dd-delete-buttons");
-            }
-
-            function createToggleButton(ddMenu) {
-                return $("<a>").button({
-                    icons: {primary: "ui-icon-triangle-1-s"},
-                    text: false
-                }).addClass("dpb-butt").click(function () {
-                    ddMenu.toggle()
-                });
-            }
-
-            function createTag(tagName, ddMenu, toggleButton, deleteButton) {
-                $("<li>").text(tagName).draggable({
-                    zIndex: 999,
-                    revert: true,
-                    revertDuration: 0
-                }).append(ddMenu).append(toggleButton).append(deleteButton).appendTo(".course-tags").addClass("course-tag");
-            }
-
-
-            if (course[0].hasSection == true) {
-                var sectionCB = [];
-                var sectionItems = [];
-                var sectionDD = createDropdownMenu();
-                populateDropdownMenu(numSection1,sectionDD, sectionCB, sectionItems, course[0].sections1, "lecture");
-                var sectionDB = createDeleteButton();
-                var sectionTB = createToggleButton(sectionDD);
-                createTag(department + code + " Lec", sectionDD, sectionTB, sectionDB);
-            }
-
-            if (course[0].hasTutorial == true) {
-                var tutorialCB = [];
-                var tutorialItems = [];
-                var tutorialDD = createDropdownMenu();
-                populateDropdownMenu(numTutorial1,tutorialDD, tutorialCB, tutorialItems, course[0].tutorials1, "tutorial");
-                var tutorialDB = createDeleteButton();
-                var tutorialTB = createToggleButton(tutorialDD);
-                createTag(department + code + " Tut", tutorialDD, tutorialTB, tutorialDB);
-            }
-
-            if (course[0].hasLaboratory == true) {
-                var laboratoryCB = [];
-                var laboratoryItems = [];
-                var laboratoryDD = createDropdownMenu();
-                populateDropdownMenu(numLaboratory1,laboratoryDD, laboratoryCB, laboratoryItems, course[0].labs1, "laboratory");
-                var laboratoryDB = createDeleteButton();
-                var laboratoryTB = createToggleButton(laboratoryDD);
-                createTag(department + code + " Lab", laboratoryDD, laboratoryTB, laboratoryDB);
-            }*/
 
             $("#coursecode").val("");
         }
@@ -627,9 +586,15 @@ main = function () {
         return false;
     });
 
-    function eventsRender(events) {
-        for (var i = 0; i < events.length; i++) {
-            calendar_term1.fullCalendar('renderEvent', events[i], true);
+    function eventsRender(events, identifier) {
+        if(activeTab == "term1"){
+            for (var i = 0; i < events.length; i++) {
+                calendar_term1.fullCalendar('renderEvent', events[i], true);
+            }
+        } else if(activeTab == "term2"){
+            for (var i = 0; i < events.length; i++) {
+                calendar_term2.fullCalendar('renderEvent', events[i], true);
+            }
         }
     }
 
@@ -637,19 +602,26 @@ main = function () {
     $(".course-tags")
         .on("click", ".dd-delete-buttons", function () {
             $(this).parent().find("li").each(function(index){
-                //alert(index+": "+$(this).text())});
-                //alert(index+": "+$(this).data("event")[0].id)});
-                calendar_term1.fullCalendar("removeEvents",$(this).data("event")[0].id)});
+                if(activeTab == "term1"){
+                    calendar_term1.fullCalendar("removeEvents",$(this).data("event")[0].id);
+                } else if(activeTab == "term2"){
+                    calendar_term2.fullCalendar("removeEvents",$(this).data("event")[0].id);
+                }
+            });
             $(this).closest(".course-tag").remove();
             return false;
         })
         .on("click", ".dd-check-boxes", function () {
             if ($(".dd-check-boxes").is(":checked") && !($(this).hasClass("checked-box"))) {
                 $(this).addClass("checked-box");
-                eventsRender($(this).parent().data("event"));
+                eventsRender($(this).parent().data("event"),activeTab);
             } else if ($(".dd-check-boxes").not(":checked") && $(this).hasClass("checked-box")) {
                 $(this).removeClass("checked-box");
-                calendar_term1.fullCalendar("removeEvents", $(this).parent().data("event")[0].id);
+                if(activeTab == "term1") {
+                    calendar_term1.fullCalendar("removeEvents", $(this).parent().data("event")[0].id);
+                } else if(activeTab == "term2"){
+                    calendar_term2.fullCalendar("removeEvents", $(this).parent().data("event")[0].id);
+                }
             }
         });
 

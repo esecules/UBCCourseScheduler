@@ -60,16 +60,16 @@ body{
     padding-right:5px;
 }
 
-#diyScheduler .nav-tabs{
+#diyScheduler .tabbable{
     padding-top:20px;
 }
 
 #diyScheduler #calendar{
-    padding-top:10px;
+    padding-top:5px;
 }
 
 #diyScheduler #calendar2{
-    padding-top:10px;
+    padding-top:5px;
 }
 
 #diyScheduler .fc-toolbar .fc-center h2{
@@ -106,7 +106,7 @@ body{
 }
 
 #diyScheduler .course-input .input-box{
-    width:100px;
+    width:125px;
     height:30px;
     font-size: 12px;
     font-family: 'Shift', sans-serif;

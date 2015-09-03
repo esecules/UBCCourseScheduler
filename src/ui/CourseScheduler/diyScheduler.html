@@ -58,14 +58,27 @@
         <div class="course-timetable">
             <div class="col-md-9">
                 <div class="container-fluid">
+                    <!--div id="tabs">
+                        <ul>
+                            <li><a href="#tabs-1">Term 1</a></li>
+                            <li><a href="#tabs-2">Term 2</a></li>
+                        </ul>
+                        <div id="tabs-1">
+                            <div id='calendar'></div>
+                        </div>
+                        <div id="tabs-2">
+                            <div id="calendar2"></div>
+                        </div>
+                    </div-->
                     <div class="tabbable">
                         <ul class="nav nav-tabs" id="switchTabs">
-                            <li role="presentation" class="active" id="term1"><a href="#tabTerm1" data-toggle="tab">Term
-                                1</a></li>
+                            <!--li role="presentation" class="active" id="term1"><a href="#tabTerm1" data-toggle="tab">Term 1</a></li-->
+                            <li role="presentation" id="term1"><a href="#tabTerm1" data-toggle="tab">Term 1</a></li>
                             <li role="presentation" id="term2"><a href="#tabTerm2" data-toggle="tab">Term 2</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tabTerm1">
+                            <!--div class="tab-pane active" id="tabTerm1"-->
+                            <div class="tab-pane" id="tabTerm1">
                                 <div id='calendar'></div>
                             </div>
                             <div class="tab-pane" id="tabTerm2">
@@ -92,12 +105,13 @@
 
                     <form class="form-group pull-left">
                         <div class="control-group">
-                            <input type="text" class="form-control input-box" id="coursecode">
+                            <input type="text" class="form-control input-box" placeholder="e.g. CPSC213" id="coursecode">
                         </div>
                         <a href="#" id="add-button" class="btn btn-default" role="button"
                            data-trigger="manual" data-title="" data-placement="bottom">
                             <i class="fa fa-plus"></i>
                         </a>
+                        <h3>id of selected tab: <span id="idDisplay"></span></h3>
                         <!-- Course Tags append DOM -->
                         <ul class="course-tags"></ul>
                     </form>
