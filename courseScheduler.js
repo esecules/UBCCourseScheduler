@@ -379,7 +379,7 @@ main = function () {
             $.ajax({
              dataType: "json",
              type: "GET",
-             url: "http://localhost:8080/backend/departments/" + department + "/courses/" + code + "/sections",
+             url: "http://52.88.5.148/departments/" + department + "/courses/" + code + "/sections",
              success: function (data) {
              console.log(data);
              validCode(data);
