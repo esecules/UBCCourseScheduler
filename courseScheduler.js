@@ -7,6 +7,7 @@ var main;
 
 main = function () {
     //Sample JSON data for functions testing
+/*
     var course = [
         {
             "hasSection": true,
@@ -250,8 +251,8 @@ main = function () {
                 }]
         }
     ];
-
-    //var course; //UNCOMMENT THIS FOR AJAX!!
+*/
+    var course; //UNCOMMENT THIS FOR AJAX!!
 
 
     //Term 1 Fullcalendar Initialisation
@@ -375,7 +376,7 @@ main = function () {
             var code = tag.substr(4).trim().toUpperCase();
 
             //UNCOMMENT THIS FOR AJAX!!
-            /*$.ajax({
+            $.ajax({
              dataType: "json",
              type: "GET",
              url: "http://localhost:8080/backend/departments/" + department + "/courses/" + code + "/sections",
@@ -391,7 +392,7 @@ main = function () {
 
              var validCode = function (courseinfo) {
              course = courseinfo
-             //course = JSON.parse(courseinfo);*/
+
 
             var numSection1 = course[0].sections_term1.length;
             var numTutorial1 = course[0].tutorials_term1.length;
@@ -622,7 +623,7 @@ main = function () {
             //Clears input box for next user input
             $("#coursecode").val("");
         }
-        //} //UNCOMMENT THIS FOR AJAX!!
+        } //UNCOMMENT THIS FOR AJAX!!
         //Page doesn't go to top every time an element is added
         return false;
     });
