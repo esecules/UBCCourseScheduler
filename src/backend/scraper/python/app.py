@@ -1,4 +1,4 @@
-from flask import Flask, abort
+from flask import Flask, abort, Response
 from parsers import SectionParser
 import traceback
 import json
@@ -23,7 +23,9 @@ def get_sections(dept, course):
     except Exception as e:
         logger.error(traceback.format_exc())
         abort(500)
-    return sections_json
+    resp = Response(sections_json)
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 if __name__ == '__main__':
         app.run(port='8080')
