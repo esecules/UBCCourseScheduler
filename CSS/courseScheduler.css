@@ -232,7 +232,7 @@ body{
 
 
 
-#contact #tiff-website{
+#contact #tiff-website, #eric-website{
     text-align: center;
     margin-top: 10px;
     font-size: 30px;
@@ -272,6 +272,14 @@ body{
 
 #contact #tiff-website:hover{
     color: #ff58c1;
+    background: #fff;
+    z-index: 2;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+#contact #eric-website:hover{
+    color: #02027b;
     background: #fff;
     z-index: 2;
     -webkit-transform: translateY(-5px);
