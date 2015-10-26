@@ -379,7 +379,7 @@ main = function () {
             $.ajax({
              dataType: "json",
              type: "GET",
-             url: "http://52.88.5.148/departments/" + department + "/courses/" + code + "/sections",
+             url: "http://UBCCourseScheduler-216098013.us-west-2.elb.amazonaws.com/departments/" + department + "/courses/" + code + "/sections",
              success: function (data) {
              console.log(data);
              validCode(data);
