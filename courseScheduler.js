@@ -625,12 +625,12 @@ main = function () {
 
     //Iteratively renders a list of events onto either term1 or term2 calendar,
     //according to identifier
-    function eventsRender(events, identifier) {
-        if(activeTab == "term1"){
+    function eventsRender(events, term) {
+        if(term = 1){
             for (var i = 0; i < events.length; i++) {
                 calendar_term1.fullCalendar('renderEvent', events[i], true);
             }
-        } else if(activeTab == "term2"){
+        } else if(term = 2){
             for (var i = 0; i < events.length; i++) {
                 calendar_term2.fullCalendar('renderEvent', events[i], true);
             }
@@ -662,9 +662,9 @@ main = function () {
                 eventsRender($(this).parent().data("event"), $(this).parent().data("term"));
             } else if ($(".dd-check-boxes").not(":checked") && $(this).hasClass("checked-box")) {
                 $(this).removeClass("checked-box");
-                if(activeTab == "term1") {
+                if($(this).parent().data("term") == 1) {
                     calendar_term1.fullCalendar("removeEvents", $(this).parent().data("event")[0].id);
-                } else if(activeTab == "term2"){
+                } else if($(this).parent().data("term") == 2){
                     calendar_term2.fullCalendar("removeEvents", $(this).parent().data("event")[0].id);
                 }
             }
