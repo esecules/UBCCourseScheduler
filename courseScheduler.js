@@ -320,6 +320,15 @@ main = function () {
         $('#calendar').fullCalendar('render');
         $('#calendar2').fullCalendar('render');
         activeTab = $(".tabbable li.active").attr("id");
+	var tags = document.getElementsByClassName("course-tags");
+	var to_hide = tags[0].getElementsByClassName(activeTab == "term1" ? "term-2" : "term-1" );
+	var to_show = tags[0].getElementsByClassName(activeTab == "term1" ? "term-1" : "term-2" );
+	for( var i = 0; i < to_hide.length; i++){
+	    $(to_hide[i]).addClass("hidden");
+	}
+	for( var i = 0; i < to_show.length; i++){
+	    $(to_show[i]).removeClass("hidden");
+	}
         //$("#idDisplay").text(activeTab);
     });
 
@@ -535,14 +544,14 @@ main = function () {
                         revert: true,
                         revertDuration: 0
                     }).append(ddMenu).append(toggleButton).append(deleteButton).appendTo(".course-tags")
-                        .addClass("course-tag").addClass("term-1");
+                        .addClass("course-tag").addClass("term-1").addClass(activeTab == "term1" ? "" : "hidden");
                 } else if(term == 2){
                     $("<li>").text(tagName).draggable({
                         zIndex: 999,
                         revert: true,
                         revertDuration: 0
                     }).append(ddMenu).append(toggleButton).append(deleteButton).appendTo(".course-tags")
-                        .addClass("course-tag").addClass("term-2");
+                        .addClass("course-tag").addClass("term-2").addClass(activeTab == "term2" ? "" : "hidden");
                 }
             }
 
@@ -605,7 +614,7 @@ main = function () {
                     createTag(department + code + " Tut", tutorialDD2, tutorialTB2, tutorialDB2, 2);
                 }
 
-                if (course[0].labs1.length > 0) {
+                if (course[0].labs2.length > 0) {
                     var laboratoryCB2 = [];
                     var laboratoryItems2 = [];
                     var laboratoryDD2 = createDropdownMenu();
