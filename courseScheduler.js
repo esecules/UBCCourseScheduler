@@ -554,9 +554,7 @@ main = function () {
             //...
 
             //if term1 calendar is the active tab shown
-            if(activeTab == "term1"){
-                alert("TERM 1!!!!!");
-                if (course[0].hasSection == true) {
+                if (course[0].sections1.length > 0) {
                     var sectionCB = [];
                     var sectionItems = [];
                     var sectionDD = createDropdownMenu();
@@ -566,7 +564,7 @@ main = function () {
                     createTag(department + code + " Lec", sectionDD, sectionTB, sectionDB, 1);
                 }
 
-                if (course[0].hasTutorial == true) {
+                if (course[0].tutorials1.length > 0) {
                     var tutorialCB = [];
                     var tutorialItems = [];
                     var tutorialDD = createDropdownMenu();
@@ -576,7 +574,7 @@ main = function () {
                     createTag(department + code + " Tut", tutorialDD, tutorialTB, tutorialDB, 1);
                 }
 
-                if (course[0].hasLaboratory == true) {
+                 if (course[0].labs1.length > 0) {
                     var laboratoryCB = [];
                     var laboratoryItems = [];
                     var laboratoryDD = createDropdownMenu();
@@ -585,11 +583,8 @@ main = function () {
                     var laboratoryTB = createToggleButton(laboratoryDD);
                     createTag(department + code + " Lab", laboratoryDD, laboratoryTB, laboratoryDB, 1);
                 }
-            }
             //if term2 calendar is the active tab shown
-            else if(activeTab == "term2"){
-                alert("TERM 2!!!!!");
-                if (course[0].hasSection == true) {
+                if (course[0].sections2.length > 0) {
                     var sectionCB2 = [];
                     var sectionItems2 = [];
                     var sectionDD2 = createDropdownMenu();
@@ -599,7 +594,7 @@ main = function () {
                     createTag(department + code + " Lec", sectionDD2, sectionTB2, sectionDB2, 2);
                 }
 
-                if (course[0].hasTutorial == true) {
+                if (course[0].tutorials2.length > 0) {
                     var tutorialCB2 = [];
                     var tutorialItems2 = [];
                     var tutorialDD2 = createDropdownMenu();
@@ -609,7 +604,7 @@ main = function () {
                     createTag(department + code + " Tut", tutorialDD2, tutorialTB2, tutorialDB2, 2);
                 }
 
-                if (course[0].hasLaboratory == true) {
+                if (course[0].labs1.length > 0) {
                     var laboratoryCB2 = [];
                     var laboratoryItems2 = [];
                     var laboratoryDD2 = createDropdownMenu();
@@ -618,7 +613,6 @@ main = function () {
                     var laboratoryTB2 = createToggleButton(laboratoryDD2);
                     createTag(department + code + " Lab", laboratoryDD2, laboratoryTB2, laboratoryDB2, 2);
                 }
-            }
 
             //Clears input box for next user input
             $("#coursecode").val("");
