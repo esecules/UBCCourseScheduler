@@ -492,7 +492,8 @@ main = function () {
             //a list of Event objects (lecture/lab/tutorial happens more than onece/week)
             function createItem(checkBox, tag, index, identifier, term) {
                 return $("<li>").text(tag).addClass("dd-options").append(checkBox)
-                    .data("event", iterateCourse(index, identifier, term));
+                    .data("event", iterateCourse(index, identifier, term))
+		    .data("term", term);
             }
 
             //function fills up the dropdown menu with items
@@ -644,9 +645,9 @@ main = function () {
         //remove all events on calendar with the same id as parent
         .on("click", ".dd-delete-buttons", function () {
             $(this).parent().find("li").each(function(index){
-                if(activeTab == "term1"){
+                if($(this).data("term") == 1){
                     calendar_term1.fullCalendar("removeEvents",$(this).data("event")[0].id);
-                } else if(activeTab == "term2"){
+                } else if($(this).data("term") == 2){
                     calendar_term2.fullCalendar("removeEvents",$(this).data("event")[0].id);
                 }
             });
@@ -658,7 +659,7 @@ main = function () {
         .on("click", ".dd-check-boxes", function () {
             if ($(".dd-check-boxes").is(":checked") && !($(this).hasClass("checked-box"))) {
                 $(this).addClass("checked-box");
-                eventsRender($(this).parent().data("event"),activeTab);
+                eventsRender($(this).parent().data("event"), $(this).parent().data("term"));
             } else if ($(".dd-check-boxes").not(":checked") && $(this).hasClass("checked-box")) {
                 $(this).removeClass("checked-box");
                 if(activeTab == "term1") {
