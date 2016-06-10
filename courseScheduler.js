@@ -626,11 +626,11 @@ main = function () {
     //Iteratively renders a list of events onto either term1 or term2 calendar,
     //according to identifier
     function eventsRender(events, term) {
-        if(term = 1){
+        if(term == 1){
             for (var i = 0; i < events.length; i++) {
                 calendar_term1.fullCalendar('renderEvent', events[i], true);
             }
-        } else if(term = 2){
+        } else if(term == 2){
             for (var i = 0; i < events.length; i++) {
                 calendar_term2.fullCalendar('renderEvent', events[i], true);
             }
